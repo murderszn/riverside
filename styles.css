@@ -1401,6 +1401,7 @@ img {
     font-family: 'Playfair Display', serif;
     text-transform: uppercase;
     letter-spacing: 1px;
+    color: white;
 }
 
 .modal-close {
