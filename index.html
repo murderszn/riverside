@@ -27,6 +27,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+    <!-- Promo Banner -->
+    <div class="promo-banner" id="promo-banner">
+        <div class="promo-content">
+            <span class="promo-text">
+                👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
+            </span>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -56,16 +65,17 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <video autoplay muted loop playsinline poster="images/Instagram_files/building-front.jpg">
-                <source src="hero-video.mov" type="video/quicktime">
-                <source src="hero-video.mov" type="video/mp4">
-                <!-- Fallback image if video doesn't load -->
-                <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'">
+            <video id="hero-video" autoplay muted loop playsinline preload="metadata"
+                   style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
+                <source src="riverside-live.mp4" type="video/mp4">
+                <source src="riverside-live.mov" type="video/quicktime">
+                <!-- Fallback image - shown only if video fails -->
+                <img id="hero-fallback" src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
             </video>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="hero-title">Riverside Cafe</h1>
+            <h1 class="hero-title">Riverside Café</h1>
             <div class="hero-divider"></div>
             <div class="hero-details">
                 <p>401 N. Riverside Dr, Gurnee, IL</p>
@@ -126,6 +136,7 @@
                             <div class="item-info">
                                 <h4>Meat Lover's Skillet</h4>
                                 <p>Hash browns topped with cheese, applewood bacon, ham, maple sausage, and two eggs. Served with toast.</p>
+                                <span class="calories">~850 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -133,6 +144,7 @@
                             <div class="item-info">
                                 <h4>Old School Sandwich</h4>
                                 <p>Handmade English muffin, bacon, scrambled egg, American cheese. Served with hash browns.</p>
+                                <span class="calories">~720 calories</span>
                             </div>
                             <span class="price">$13.00</span>
                         </div>
@@ -140,6 +152,7 @@
                             <div class="item-info">
                                 <h4>Southern Biscuits & Gravy</h4>
                                 <p>Classic Southern comfort food with house-made gravy.</p>
+                                <span class="calories">~680 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -153,36 +166,42 @@
                             <div class="item-info">
                                 <h4>Hot Coffee</h4>
                                 <p>12oz: $3.50 | 16oz: $4.00 | 20oz: $4.50</p>
+                                <span class="calories">~5 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Latte</h4>
                                 <p>12oz: $4.50 | 16oz: $6.00 | 20oz: $6.50</p>
+                                <span class="calories">~200 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Cappuccino</h4>
                                 <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $6.50</p>
+                                <span class="calories">~120 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Matcha Green Tea Latte</h4>
                                 <p>12oz: $5.00 | 16oz: $7.00 | 20oz: $7.00</p>
+                                <span class="calories">~250 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Cold Brew</h4>
                                 <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $5.50</p>
+                                <span class="calories">~5 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Iced Cold Foam Pumpkin Chai</h4>
                                 <p>12oz: $7.00 | 16oz: $7.50 | 20oz: $8.00</p>
+                                <span class="calories">~300 calories</span>
                             </div>
                         </div>
                     </div>
@@ -195,6 +214,7 @@
                             <div class="item-info">
                                 <h4>Avocado Toast</h4>
                                 <p>Toast with avocado spread & egg, served with hash browns.</p>
+                                <span class="calories">~400 calories</span>
                             </div>
                             <span class="price">$13.00</span>
                         </div>
@@ -202,6 +222,7 @@
                             <div class="item-info">
                                 <h4>Barbacoa Eggs Benedict</h4>
                                 <p>Muffin, black beans, cheddar, barbacoa, poached eggs, hollandaise, salsa.</p>
+                                <span class="calories">~650 calories</span>
                             </div>
                             <span class="price">$17.00</span>
                         </div>
@@ -209,6 +230,7 @@
                             <div class="item-info">
                                 <h4>Classic Eggs Benedict</h4>
                                 <p>Muffin, Canadian bacon, poached eggs, hollandaise, hash browns.</p>
+                                <span class="calories">~600 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -216,6 +238,7 @@
                             <div class="item-info">
                                 <h4>Chicken & Waffle</h4>
                                 <p>Waffle topped with bacon and fried chicken strips.</p>
+                                <span class="calories">~850 calories</span>
                             </div>
                             <span class="price">$17.00</span>
                         </div>
@@ -223,6 +246,7 @@
                             <div class="item-info">
                                 <h4>Green Chilaquiles</h4>
                                 <p>Tortilla chips, green salsa, chorizo, cheese, eggs, avocado.</p>
+                                <span class="calories">~700 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -230,6 +254,7 @@
                             <div class="item-info">
                                 <h4>Red Chilaquiles</h4>
                                 <p>Red salsa, barbacoa, eggs, avocado, sour cream.</p>
+                                <span class="calories">~700 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -243,6 +268,7 @@
                             <div class="item-info">
                                 <h4>Denver Omelette</h4>
                                 <p>Ham, onions, bell peppers, cheese, hash browns, toast.</p>
+                                <span class="calories">~550 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -250,6 +276,7 @@
                             <div class="item-info">
                                 <h4>Garden Omelet</h4>
                                 <p>Spinach, onion, tomato, cheddar.</p>
+                                <span class="calories">~400 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -257,6 +284,7 @@
                             <div class="item-info">
                                 <h4>Meat Lover's Omelette</h4>
                                 <p>Bacon, ham, sausage, cheese, hash browns, toast.</p>
+                                <span class="calories">~650 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -264,6 +292,7 @@
                             <div class="item-info">
                                 <h4>Mexicana Omelette</h4>
                                 <p>Chorizo, onion, tomato, jalapeño, cheese, toast or pancakes.</p>
+                                <span class="calories">~600 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -271,6 +300,7 @@
                             <div class="item-info">
                                 <h4>Steak Omelet</h4>
                                 <p>Steak, onion, pepper, mushroom, cheese, hash browns.</p>
+                                <span class="calories">~700 calories</span>
                             </div>
                             <span class="price">$19.00</span>
                         </div>
@@ -284,6 +314,7 @@
                             <div class="item-info">
                                 <h4>Meat Lover's Skillet</h4>
                                 <p>Bacon, ham, sausage, cheese, eggs, toast.</p>
+                                <span class="calories">~750 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -291,6 +322,7 @@
                             <div class="item-info">
                                 <h4>Denver Skillet</h4>
                                 <p>Ham, onion, pepper, cheese, eggs, toast.</p>
+                                <span class="calories">~600 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -298,6 +330,7 @@
                             <div class="item-info">
                                 <h4>Steak Skillet</h4>
                                 <p>Premium steak with onions, peppers, mushrooms and cheese.</p>
+                                <span class="calories">~750 calories</span>
                             </div>
                             <span class="price">$19.00</span>
                         </div>
@@ -305,6 +338,7 @@
                             <div class="item-info">
                                 <h4>CYO Skillet</h4>
                                 <p>Create Your Own - choose your ingredients.</p>
+                                <span class="calories">~500 calories</span>
                             </div>
                             <span class="price">$14.00</span>
                         </div>
@@ -318,6 +352,7 @@
                             <div class="item-info">
                                 <h4>Combo & Toast</h4>
                                 <p>Eggs, hash browns, choice of meat, with toast.</p>
+                                <span class="calories">~650 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -325,6 +360,7 @@
                             <div class="item-info">
                                 <h4>Combo & Pancakes</h4>
                                 <p>Eggs, hash browns, meat, two pancakes.</p>
+                                <span class="calories">~850 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -332,6 +368,7 @@
                             <div class="item-info">
                                 <h4>Combo & French Toast</h4>
                                 <p>Eggs, hash browns, meat, two French toast.</p>
+                                <span class="calories">~900 calories</span>
                             </div>
                             <span class="price">$17.00</span>
                         </div>
@@ -339,6 +376,7 @@
                             <div class="item-info">
                                 <h4>Combo & Waffle</h4>
                                 <p>Eggs, hash browns, meat, Belgian waffle.</p>
+                                <span class="calories">~800 calories</span>
                             </div>
                             <span class="price">$18.00</span>
                         </div>
@@ -354,6 +392,7 @@
                             <div class="item-info">
                                 <h4>Pancakes Full Order</h4>
                                 <p>Fluffy buttermilk pancakes.</p>
+                                <span class="calories">~520 calories</span>
                             </div>
                             <span class="price">$10.00</span>
                         </div>
@@ -361,6 +400,7 @@
                             <div class="item-info">
                                 <h4>French Toast Full Order</h4>
                                 <p>Thick slices of brioche bread.</p>
+                                <span class="calories">~580 calories</span>
                             </div>
                             <span class="price">$12.00</span>
                         </div>
@@ -368,6 +408,7 @@
                             <div class="item-info">
                                 <h4>Waffle Full Order</h4>
                                 <p>Belgian waffle with whipped butter.</p>
+                                <span class="calories">~600 calories</span>
                             </div>
                             <span class="price">$12.00</span>
                         </div>
@@ -375,6 +416,7 @@
                             <div class="item-info">
                                 <h4>Banana Nutella Crepes</h4>
                                 <p>French crepes with banana and Nutella.</p>
+                                <span class="calories">~650 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -382,6 +424,7 @@
                             <div class="item-info">
                                 <h4>Banana Foster French Toast</h4>
                                 <p>French toast with caramelized bananas.</p>
+                                <span class="calories">~700 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -395,6 +438,7 @@
                             <div class="item-info">
                                 <h4>Bacon Cheeseburger</h4>
                                 <p>Beef patty, bacon, cheese, veggies, avocado spread.</p>
+                                <span class="calories">~750 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -402,6 +446,7 @@
                             <div class="item-info">
                                 <h4>Brunch Burger</h4>
                                 <p>Beef patty, cheddar, bacon, egg, A1 sauce.</p>
+                                <span class="calories">~800 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -409,6 +454,7 @@
                             <div class="item-info">
                                 <h4>Chicken Avocado Wrap</h4>
                                 <p>Chicken, avocado spread, veggies, cheese.</p>
+                                <span class="calories">~550 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -416,6 +462,7 @@
                             <div class="item-info">
                                 <h4>Cobb Salad</h4>
                                 <p>Chicken, bacon, tomato, avocado, egg, blue cheese.</p>
+                                <span class="calories">~450 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -423,6 +470,7 @@
                             <div class="item-info">
                                 <h4>Chicken Sandwich</h4>
                                 <p>Grilled chicken breast with fresh toppings.</p>
+                                <span class="calories">~600 calories</span>
                             </div>
                             <span class="price">$16.00</span>
                         </div>
@@ -430,6 +478,7 @@
                             <div class="item-info">
                                 <h4>Clubhouse Sandwich</h4>
                                 <p>Turkey, bacon, lettuce, tomato, mayo.</p>
+                                <span class="calories">~550 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -443,6 +492,7 @@
                             <div class="item-info">
                                 <h4>Kids Combo</h4>
                                 <p>Two eggs, hash browns, choice of meat, toast.</p>
+                                <span class="calories">~450 calories</span>
                             </div>
                             <span class="price">$8.00</span>
                         </div>
@@ -450,6 +500,7 @@
                             <div class="item-info">
                                 <h4>Kids Pancakes</h4>
                                 <p>Fluffy pancakes with syrup.</p>
+                                <span class="calories">~350 calories</span>
                             </div>
                             <span class="price">$5.00</span>
                         </div>
@@ -457,6 +508,7 @@
                             <div class="item-info">
                                 <h4>Kids Grilled Cheese</h4>
                                 <p>Melted cheese between toasted bread.</p>
+                                <span class="calories">~400 calories</span>
                             </div>
                             <span class="price">$7.00</span>
                         </div>
@@ -464,6 +516,7 @@
                             <div class="item-info">
                                 <h4>Kids Chicken Fingers</h4>
                                 <p>Crispy chicken tenders with dipping sauce.</p>
+                                <span class="calories">~450 calories</span>
                             </div>
                             <span class="price">$8.00</span>
                         </div>
@@ -471,6 +524,7 @@
                             <div class="item-info">
                                 <h4>Cheeseburger Kids</h4>
                                 <p>Juicy cheeseburger just for kids.</p>
+                                <span class="calories">~550 calories</span>
                             </div>
                             <span class="price">$8.00</span>
                         </div>
@@ -484,6 +538,7 @@
                             <div class="item-info">
                                 <h4>Cinnamon Roll</h4>
                                 <p>Fresh baked cinnamon roll with icing.</p>
+                                <span class="calories">~350 calories</span>
                             </div>
                             <span class="price">$5.00</span>
                         </div>
@@ -491,6 +546,7 @@
                             <div class="item-info">
                                 <h4>Blueberry Lemon Muffin</h4>
                                 <p>Moist muffin with fresh blueberries.</p>
+                                <span class="calories">~300 calories</span>
                             </div>
                             <span class="price">$4.25</span>
                         </div>
@@ -498,6 +554,7 @@
                             <div class="item-info">
                                 <h4>Blueberry Scone</h4>
                                 <p>Buttery scone with blueberries.</p>
+                                <span class="calories">~250 calories</span>
                             </div>
                             <span class="price">$4.00</span>
                         </div>
@@ -505,6 +562,7 @@
                             <div class="item-info">
                                 <h4>Pumpkin Cranberry Muffin</h4>
                                 <p>Seasonal pumpkin muffin with cranberries.</p>
+                                <span class="calories">~300 calories</span>
                             </div>
                             <span class="price">$4.25</span>
                         </div>
@@ -518,6 +576,7 @@
                             <div class="item-info">
                                 <h4>Organic Pumpkin Pancakes</h4>
                                 <p>Seasonal pumpkin pancakes with whipped cream.</p>
+                                <span class="calories">~650 calories</span>
                             </div>
                             <span class="price">$15.00</span>
                         </div>
@@ -525,6 +584,7 @@
                             <div class="item-info">
                                 <h4>Pumpkin S'mores French Toast</h4>
                                 <p>French toast with pumpkin and s'mores toppings.</p>
+                                <span class="calories">~750 calories</span>
                             </div>
                             <span class="price">$17.00</span>
                         </div>
@@ -532,6 +592,7 @@
                             <div class="item-info">
                                 <h4>NY Strip Steak & Eggs</h4>
                                 <p>Premium steak with two eggs any style.</p>
+                                <span class="calories">~850 calories</span>
                             </div>
                             <span class="price">$30.00</span>
                         </div>
@@ -539,6 +600,7 @@
                             <div class="item-info">
                                 <h4>Maple Bacon Cheeseburger</h4>
                                 <p>Burger with maple glazed bacon and cheese.</p>
+                                <span class="calories">~800 calories</span>
                             </div>
                             <span class="price">$17.00</span>
                         </div>
@@ -552,68 +614,69 @@
 
     <!-- Events Section -->
     <section id="events" class="events">
+        <div class="events-background">
+            <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Venue" onerror="this.src='images/placeholder.jpg'">
+        </div>
+        <div class="events-overlay"></div>
         <div class="container">
-            <div class="section-header">
-                <div class="section-icon">
-                    <i class="fas fa-calendar-alt"></i>
-                </div>
-                <h2>Events & Venue</h2>
-                <p class="section-subtitle">Host your special occasion at Riverside Cafe</p>
-            </div>
             <div class="events-content">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h2>Events & Venue</h2>
+                    <p class="section-subtitle">Host your special occasion at Riverside Cafe</p>
+                </div>
                 <div class="events-text">
                     <h3>Perfect for Your Special Occasions</h3>
                     <p>Riverside Cafe is more than just a restaurant – we're your premier venue for intimate gatherings, celebrations, and corporate events. Our charming space provides the perfect backdrop for memorable occasions.</p>
-
-                    <div class="events-features">
-                        <div class="feature-item" style="background-image: url('images/Instagram_files/team2.jpg');">
-                            <div class="feature-overlay">
-                                <h4>Private Events</h4>
-                                <p>Birthday celebrations, anniversaries, baby showers, and family gatherings</p>
-                            </div>
+                </div>
+                <div class="events-features">
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-birthday-cake"></i>
                         </div>
-                        <div class="feature-item" style="background-image: url('images/Instagram_files/pretty-server1.jpg');">
-                            <div class="feature-overlay">
-                                <h4>Corporate Events</h4>
-                                <p>Business meetings, team building events, and client presentations</p>
-                            </div>
-                        </div>
-                        <div class="feature-item" style="background-image: url('images/Instagram_files/cocktaili.jpg');">
-                            <div class="feature-overlay">
-                                <h4>Wedding Receptions</h4>
-                                <p>Intimate wedding receptions and rehearsal dinners</p>
-                            </div>
-                        </div>
-                        <div class="feature-item" style="background-image: url('images/Instagram_files/team.jpg');">
-                            <div class="feature-overlay">
-                                <h4>Special Occasions</h4>
-                                <p>Graduation parties, retirement celebrations, and milestone events</p>
-                            </div>
-                        </div>
+                        <h4>Private Events</h4>
+                        <p>Birthday celebrations, anniversaries, baby showers, and family gatherings</p>
                     </div>
-
-                    <div class="events-details">
-                        <div class="detail-item">
-                            <i class="fas fa-users"></i>
-                            <div>
-                                <h5>Capacity</h5>
-                                <p>Up to 60 guests seated, 80 for standing reception</p>
-                            </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-building"></i>
                         </div>
-                        <div class="detail-item">
-                            <i class="fas fa-utensils"></i>
-                            <div>
-                                <h5>Catering</h5>
-                                <p>Custom menus available for all events</p>
-                            </div>
+                        <h4>Corporate Events</h4>
+                        <p>Business meetings, team building events, and client presentations</p>
+                    </div>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-heart"></i>
                         </div>
+                        <h4>Wedding Receptions</h4>
+                        <p>Intimate wedding receptions and rehearsal dinners</p>
                     </div>
-
-                    <div class="events-cta">
-                        <p>Ready to host your event at Riverside Cafe?</p>
-                        <a href="tel:(847) 672-8736" class="btn btn-primary">Call (847) 672-8736</a>
-                        <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email for Details</a>
+                    <div class="event-card">
+                        <div class="event-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h4>Special Occasions</h4>
+                        <p>Graduation parties, retirement celebrations, and milestone events</p>
                     </div>
+                </div>
+                <div class="events-details">
+                    <div class="detail-card">
+                        <i class="fas fa-users"></i>
+                        <h5>Capacity</h5>
+                        <p>Up to 60 guests seated, 80 for standing reception</p>
+                    </div>
+                    <div class="detail-card">
+                        <i class="fas fa-utensils"></i>
+                        <h5>Catering</h5>
+                        <p>Custom menus available for all events</p>
+                    </div>
+                </div>
+                <div class="events-cta">
+                    <p>Ready to host your event at Riverside Cafe?</p>
+                    <a href="tel:(847) 672-8736" class="btn btn-primary">Call (847) 672-8736</a>
+                    <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email for Details</a>
                 </div>
             </div>
         </div>
@@ -767,6 +830,7 @@
         </div>
     </section>
 
+
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-background">
@@ -822,12 +886,12 @@
                             <i class="fas fa-utensils"></i>
                         </div>
                         <div class="order-info">
-                            <h4>ToastTab</h4>
+                            <h4>Toast</h4>
                             <p>Direct ordering from Riverside Cafe</p>
                         </div>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://www.ubereats.com/store/riverside-cafe/XXXXXXX" target="_blank" class="order-option ubereats">
+                    <a href="https://www.ubereats.com/store/riverside-cafes/vfCQYadAWWaaXVJzfDzdow?srsltid=AfmBOooycwewQqsjfx_0JOS-82SYhGJ5EEuK6jDZMRGQrh6HkCK97Gv-" target="_blank" class="order-option ubereats">
                         <div class="order-icon">
                             <i class="fab fa-uber"></i>
                         </div>
@@ -837,13 +901,13 @@
                         </div>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
-                    <a href="https://www.doordash.com/store/riverside-cafe-gurnee-XXXXXXX" target="_blank" class="order-option doordash">
+                    <a href="https://www.grubhub.com/restaurant/riverside-cafe-401-n-riverside-dr-gurnee/2440928" target="_blank" class="order-option grubhub">
                         <div class="order-icon">
-                            <i class="fas fa-shopping-bag"></i>
+                            <i class="fas fa-utensils"></i>
                         </div>
                         <div class="order-info">
-                            <h4>DoorDash</h4>
-                            <p>Delivered by DoorDash</p>
+                            <h4>Grubhub</h4>
+                            <p>Delivered by Grubhub</p>
                         </div>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -852,7 +916,117 @@
         </div>
     </div>
 
+    <!-- Rewards Modal -->
+    <div id="rewards-modal" class="modal">
+        <div class="modal-overlay" id="rewards-modal-overlay"></div>
+        <div class="modal-content rewards-modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-gift"></i> Riverside Rewards Program</h3>
+                <button class="modal-close" id="rewards-modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                    <div class="rewards-content">
+                        <h4>Riverside Rewards Coming Soon!</h4>
+                        <p>Join our rewards program for exclusive benefits including points, discounts, and special offers.</p>
+
+                        <div class="signup-section">
+                            <p>Be the first to know when we launch!</p>
+
+                            <form id="rewards-signup-form" class="signup-form">
+                                <div class="form-group">
+                                    <input type="email" id="rewards-email" placeholder="Your email" required>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fas fa-envelope"></i>
+                                        Notify Me
+                                    </button>
+                                </div>
+                                <div id="signup-message" class="signup-message"></div>
+                            </form>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return to Top Button -->
+    <button id="return-to-top" class="return-to-top" style="display: none;">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script src="script.js"></script>
+    <script>
+        // Return to Top Button Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const returnToTopBtn = document.getElementById('return-to-top');
+
+            // Show/hide button based on scroll position
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    returnToTopBtn.style.display = 'block';
+                } else {
+                    returnToTopBtn.style.display = 'none';
+                }
+            });
+
+            // Scroll to top when clicked
+            returnToTopBtn.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Rewards Modal Functionality
+            const promoBanner = document.getElementById('promo-banner');
+            const rewardsModal = document.getElementById('rewards-modal');
+            const rewardsModalClose = document.getElementById('rewards-modal-close');
+            const rewardsModalOverlay = document.getElementById('rewards-modal-overlay');
+            const rewardsSignupForm = document.getElementById('rewards-signup-form');
+            const signupMessage = document.getElementById('signup-message');
+
+            // Open modal
+            promoBanner.addEventListener('click', function() {
+                rewardsModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            });
+
+            // Close modal functions
+            function closeRewardsModal() {
+                rewardsModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                rewardsSignupForm.reset();
+                signupMessage.textContent = '';
+                signupMessage.className = 'signup-message';
+            }
+
+            rewardsModalClose.addEventListener('click', closeRewardsModal);
+            rewardsModalOverlay.addEventListener('click', closeRewardsModal);
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && rewardsModal.style.display === 'block') {
+                    closeRewardsModal();
+                }
+            });
+
+            // Handle form submission
+            rewardsSignupForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const email = document.getElementById('rewards-email').value;
+
+                // Show success message
+                signupMessage.textContent = 'Thank you for your interest! We\'ll notify you when Riverside Rewards launches.';
+                signupMessage.className = 'signup-message success';
+
+                // Reset form after 3 seconds
+                setTimeout(function() {
+                    rewardsSignupForm.reset();
+                    signupMessage.textContent = '';
+                    signupMessage.className = 'signup-message';
+                }, 3000);
+            });
+        });
+    </script>
 </body>
 </html>
 

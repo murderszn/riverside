@@ -218,5 +218,32 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Video fallback handling
+    const heroVideo = document.getElementById('hero-video');
+    const heroFallback = document.getElementById('hero-fallback');
+
+    if (heroVideo && heroFallback) {
+        // Set a timeout to check if video loads
+        setTimeout(() => {
+            // If video is still visible after 3 seconds, assume it loaded successfully
+            if (heroVideo.style.display !== 'none') {
+                // Video appears to be working, keep fallback hidden
+                heroFallback.style.display = 'none';
+            }
+        }, 3000);
+
+        // Listen for iframe load events
+        heroVideo.addEventListener('load', () => {
+            // Video loaded successfully, ensure fallback is hidden
+            heroFallback.style.display = 'none';
+        });
+
+        // If there's an error with the iframe, show fallback
+        heroVideo.addEventListener('error', () => {
+            heroVideo.style.display = 'none';
+            heroFallback.style.display = 'block';
+        });
+    }
+
     console.log('Riverside Cafe website loaded successfully!');
 });
