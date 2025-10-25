@@ -331,31 +331,6 @@ img {
     text-align: center;
 }
 
-.hero-cta {
-    margin-bottom: 80px;
-    max-width: 600px;
-}
-
-.hero-invitation {
-    font-size: clamp(1.8rem, 3vw, 2.5rem);
-    font-weight: 300;
-    color: var(--bg-white);
-    margin-bottom: 30px;
-    font-family: 'Playfair Display', serif;
-    text-transform: none;
-    letter-spacing: -0.01em;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-}
-
-.hero-description {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-    font-weight: 300;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    letter-spacing: 0.2px;
-    font-family: 'Poppins', sans-serif;
-}
 
 .hero-logo {
     margin-bottom: 30px;
@@ -1685,18 +1660,6 @@ img {
         font-size: 1rem;
     }
 
-    .hero-cta {
-        margin-bottom: 60px;
-    }
-    
-    .hero-invitation {
-        font-size: 1.5rem;
-        margin-bottom: 20px;
-    }
-    
-    .hero-description {
-        font-size: 0.95rem;
-    }
     
     .hero-info {
         gap: 12px;
