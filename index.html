@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Riverside Cafe - Gurnee, IL</title>
     <meta name="description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
+    <meta name="keywords" content="Riverside Cafe, Gurnee, Illinois, breakfast, pancakes, Lake County, restaurant, cafe, dining">
+    <meta name="author" content="Riverside Cafe">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riverside-cafe.vercel.app/">
+    <meta property="og:title" content="Riverside Cafe - Best Breakfast in Lake County">
+    <meta property="og:description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
+    <meta property="og:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/building-front.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://riverside-cafe.vercel.app/">
+    <meta property="twitter:title" content="Riverside Cafe - Best Breakfast in Lake County">
+    <meta property="twitter:description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
+    <meta property="twitter:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/building-front.jpg">
+    
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,8 +38,12 @@
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#about" class="nav-link">Our Story</a>
                 <a href="#menu" class="nav-link">Menu</a>
+                <a href="#events" class="nav-link">Events</a>
                 <a href="#gallery" class="nav-link">Gallery</a>
-                <a href="https://order.toasttab.com/online/riversidecafegurnee" target="_blank" class="nav-link order-btn">Order Online</a>
+                <a href="#" class="nav-link order-btn" id="order-btn">
+                    <i class="fas fa-utensils"></i>
+                    <span>Order Online</span>
+                </a>
             </div>
             <div class="nav-toggle">
                 <span></span>
@@ -35,34 +56,22 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'">
+            <video autoplay muted loop playsinline poster="images/Instagram_files/building-front.jpg">
+                <source src="videos/hero-video.mp4" type="video/mp4">
+                <source src="videos/hero-video.webm" type="video/webm">
+                <!-- Fallback image if video doesn't load -->
+                <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'">
+            </video>
+            <!-- Video loading instructions: Replace videos/hero-video.mp4 and videos/hero-video.webm with your actual video files -->
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <div class="hero-logo">
-                <img src="images/Instagram_files/logo-big.jpg" alt="Riverside Cafe Logo" onerror="this.src='images/placeholder.jpg'">
-            </div>
             <h1 class="hero-title">Riverside Cafe</h1>
-            <p class="hero-subtitle">Famous for our delicious pancakes and breakfast items served with warm hospitality since 2015</p>
-            
-            <div class="hero-info">
-                <div class="info-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <span>401 N. Riverside Dr, Gurnee, IL</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-clock"></i>
-                    <span>Mon-Fri: 7AM-3PM | Sat-Sun: 7AM-2PM</span>
-                </div>
-                <div class="info-item">
-                    <i class="fas fa-phone"></i>
-                    <span>(847) 672-8736</span>
-                </div>
-            </div>
-            
-            <div class="hero-buttons">
-                <a href="https://order.toasttab.com/online/riversidecafegurnee" target="_blank" class="btn btn-primary">Order Online</a>
-                <a href="#menu" class="btn btn-secondary">View Menu</a>
+            <p class="hero-subtitle">You're invited to the best breakfast in Lake County</p>
+            <div class="hero-divider"></div>
+            <div class="hero-details">
+                <p>401 N. Riverside Dr, Gurnee, IL</p>
+                <p>(847) 672-8736</p>
             </div>
         </div>
     </section>
@@ -76,6 +85,9 @@
         <div class="container">
             <div class="about-content">
                 <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
                     <h2>Our Story</h2>
                     <p class="section-subtitle">A warm welcome since 2015</p>
                 </div>
@@ -101,59 +113,281 @@
 
     <!-- Menu Section -->
     <section id="menu" class="menu">
-        <div class="menu-background">
-            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'">
-        </div>
-        <div class="menu-overlay"></div>
         <div class="container">
             <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
                 <h2>Our Menu</h2>
                 <p class="section-subtitle">Fresh, local ingredients crafted with care</p>
             </div>
             <div class="menu-grid">
-                <div class="menu-category">
-                    <h3>Signature Coffee & Drinks</h3>
+                <div class="menu-column menu-column-left">
+                    <div class="menu-category">
+                        <h3>Featured Items</h3>
                     <div class="menu-items">
                         <div class="menu-item">
                             <div class="item-info">
-                                <h4>Artisan Coffee Drinks</h4>
-                                <p>Hokkaido Banana Split, Banana Split, Mazapan, Orange Creamsicle</p>
+                                <h4>Meat Lover's Skillet</h4>
+                                <p>Hash browns topped with cheese, applewood bacon, ham, maple sausage, and two eggs. Served with toast.</p>
                             </div>
-                            <span class="price">$4.50 - $6.50</span>
+                            <span class="price">$16.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
-                                <h4>Specialty Iced Drinks</h4>
-                                <p>Snickerdoodle, Maple Pecan, and other seasonal favorites</p>
+                                <h4>Old School Sandwich</h4>
+                                <p>Handmade English muffin, bacon, scrambled egg, American cheese. Served with hash browns.</p>
                             </div>
-                            <span class="price">$4.25 - $5.75</span>
+                            <span class="price">$13.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Southern Biscuits & Gravy</h4>
+                                <p>Classic Southern comfort food with house-made gravy.</p>
+                            </div>
+                            <span class="price">$15.00</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="menu-category">
-                    <h3>Signature Breakfast</h3>
+                    <h3>Coffee & Drinks</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Hot Coffee</h4>
+                                <p>12oz: $3.50 | 16oz: $4.00 | 20oz: $4.50</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Latte</h4>
+                                <p>12oz: $4.50 | 16oz: $6.00 | 20oz: $6.50</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Cappuccino</h4>
+                                <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $6.50</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Matcha Green Tea Latte</h4>
+                                <p>12oz: $5.00 | 16oz: $7.00 | 20oz: $7.00</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Cold Brew</h4>
+                                <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $5.50</p>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Iced Cold Foam Pumpkin Chai</h4>
+                                <p>12oz: $7.00 | 16oz: $7.50 | 20oz: $8.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Breakfast Classics</h3>
                     <div class="menu-items">
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Avocado Toast</h4>
-                                <p>Large piece of toast topped with signature avocado spread and an egg cooked your way. Served with hash browns.</p>
+                                <p>Toast with avocado spread & egg, served with hash browns.</p>
                             </div>
-                            <span class="price">$12.95</span>
+                            <span class="price">$13.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Barbacoa Eggs Benedict</h4>
-                                <p>Handmade English muffin, black beans, cheddar cheese, barbacoa, topped with two poached eggs, hollandaise sauce, and house-made red salsa. Served with hash browns.</p>
+                                <p>Muffin, black beans, cheddar, barbacoa, poached eggs, hollandaise, salsa.</p>
                             </div>
-                            <span class="price">$14.95</span>
+                            <span class="price">$17.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Classic Eggs Benedict</h4>
-                                <p>Handmade English muffin, Canadian bacon, topped with two poached eggs and hollandaise sauce. Served with hash browns.</p>
+                                <p>Muffin, Canadian bacon, poached eggs, hollandaise, hash browns.</p>
                             </div>
-                            <span class="price">$13.95</span>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Chicken & Waffle</h4>
+                                <p>Waffle topped with bacon and fried chicken strips.</p>
+                            </div>
+                            <span class="price">$17.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Green Chilaquiles</h4>
+                                <p>Tortilla chips, green salsa, chorizo, cheese, eggs, avocado.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Red Chilaquiles</h4>
+                                <p>Red salsa, barbacoa, eggs, avocado, sour cream.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Omelettes</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Denver Omelette</h4>
+                                <p>Ham, onions, bell peppers, cheese, hash browns, toast.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Garden Omelet</h4>
+                                <p>Spinach, onion, tomato, cheddar.</p>
+                            </div>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Meat Lover's Omelette</h4>
+                                <p>Bacon, ham, sausage, cheese, hash browns, toast.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Mexicana Omelette</h4>
+                                <p>Chorizo, onion, tomato, jalapeño, cheese, toast or pancakes.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Steak Omelet</h4>
+                                <p>Steak, onion, pepper, mushroom, cheese, hash browns.</p>
+                            </div>
+                            <span class="price">$19.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Skillets</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Meat Lover's Skillet</h4>
+                                <p>Bacon, ham, sausage, cheese, eggs, toast.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Denver Skillet</h4>
+                                <p>Ham, onion, pepper, cheese, eggs, toast.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Steak Skillet</h4>
+                                <p>Premium steak with onions, peppers, mushrooms and cheese.</p>
+                            </div>
+                            <span class="price">$19.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>CYO Skillet</h4>
+                                <p>Create Your Own - choose your ingredients.</p>
+                            </div>
+                            <span class="price">$14.00</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Combos</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Combo & Toast</h4>
+                                <p>Eggs, hash browns, choice of meat, with toast.</p>
+                            </div>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Combo & Pancakes</h4>
+                                <p>Eggs, hash browns, meat, two pancakes.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Combo & French Toast</h4>
+                                <p>Eggs, hash browns, meat, two French toast.</p>
+                            </div>
+                            <span class="price">$17.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Combo & Waffle</h4>
+                                <p>Eggs, hash browns, meat, Belgian waffle.</p>
+                            </div>
+                            <span class="price">$18.00</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
+
+                <div class="menu-column menu-column-right">
+                    <div class="menu-category">
+                        <h3>Sweet Bites</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Pancakes Full Order</h4>
+                                <p>Fluffy buttermilk pancakes.</p>
+                            </div>
+                            <span class="price">$10.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>French Toast Full Order</h4>
+                                <p>Thick slices of brioche bread.</p>
+                            </div>
+                            <span class="price">$12.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Waffle Full Order</h4>
+                                <p>Belgian waffle with whipped butter.</p>
+                            </div>
+                            <span class="price">$12.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Banana Nutella Crepes</h4>
+                                <p>French crepes with banana and Nutella.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Banana Foster French Toast</h4>
+                                <p>French toast with caramelized bananas.</p>
+                            </div>
+                            <span class="price">$16.00</span>
                         </div>
                     </div>
                 </div>
@@ -164,23 +398,44 @@
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Bacon Cheeseburger</h4>
-                                <p>100% beef patty, bacon, American cheese, spring mix, tomato, onion, pickle, and avocado spread.</p>
+                                <p>Beef patty, bacon, cheese, veggies, avocado spread.</p>
                             </div>
-                            <span class="price">$15.95</span>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Brunch Burger</h4>
+                                <p>Beef patty, cheddar, bacon, egg, A1 sauce.</p>
+                            </div>
+                            <span class="price">$16.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Chicken Avocado Wrap</h4>
-                                <p>Flour tortilla wrap, grilled chicken, signature avocado spread, organic spring mix, tomato, onion, and Chihuahua cheese.</p>
+                                <p>Chicken, avocado spread, veggies, cheese.</p>
                             </div>
-                            <span class="price">$13.95</span>
+                            <span class="price">$15.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Cobb Salad</h4>
-                                <p>Grilled chicken, bacon, tomato, avocado, hard-boiled eggs, and blue cheese.</p>
+                                <p>Chicken, bacon, tomato, avocado, egg, blue cheese.</p>
                             </div>
-                            <span class="price">$14.95</span>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Chicken Sandwich</h4>
+                                <p>Grilled chicken breast with fresh toppings.</p>
+                            </div>
+                            <span class="price">$16.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Clubhouse Sandwich</h4>
+                                <p>Turkey, bacon, lettuce, tomato, mayo.</p>
+                            </div>
+                            <span class="price">$15.00</span>
                         </div>
                     </div>
                 </div>
@@ -191,35 +446,174 @@
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Kids Combo</h4>
-                                <p>2 eggs cooked your way, hash browns, and choice of applewood bacon, maple sausage links, or turkey patties. Served with sourdough, multigrain, or white toast.</p>
+                                <p>Two eggs, hash browns, choice of meat, toast.</p>
                             </div>
-                            <span class="price">$8.95</span>
+                            <span class="price">$8.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Kids Pancakes</h4>
-                                <p>Served with syrup.</p>
+                                <p>Fluffy pancakes with syrup.</p>
                             </div>
-                            <span class="price">$6.95</span>
+                            <span class="price">$5.00</span>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
-                                <h4>Kids Grilled Cheese Sandwich</h4>
-                                <p>Classic grilled cheese sandwich.</p>
+                                <h4>Kids Grilled Cheese</h4>
+                                <p>Melted cheese between toasted bread.</p>
                             </div>
-                            <span class="price">$7.95</span>
+                            <span class="price">$7.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Kids Chicken Fingers</h4>
+                                <p>Crispy chicken tenders with dipping sauce.</p>
+                            </div>
+                            <span class="price">$8.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Cheeseburger Kids</h4>
+                                <p>Juicy cheeseburger just for kids.</p>
+                            </div>
+                            <span class="price">$8.00</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="menu-category">
+                    <h3>Baked Goods</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Cinnamon Roll</h4>
+                                <p>Fresh baked cinnamon roll with icing.</p>
+                            </div>
+                            <span class="price">$5.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Blueberry Lemon Muffin</h4>
+                                <p>Moist muffin with fresh blueberries.</p>
+                            </div>
+                            <span class="price">$4.25</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Blueberry Scone</h4>
+                                <p>Buttery scone with blueberries.</p>
+                            </div>
+                            <span class="price">$4.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Pumpkin Cranberry Muffin</h4>
+                                <p>Seasonal pumpkin muffin with cranberries.</p>
+                            </div>
+                            <span class="price">$4.25</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-category">
+                    <h3>Seasonal Specials</h3>
+                    <div class="menu-items">
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Organic Pumpkin Pancakes</h4>
+                                <p>Seasonal pumpkin pancakes with whipped cream.</p>
+                            </div>
+                            <span class="price">$15.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Pumpkin S'mores French Toast</h4>
+                                <p>French toast with pumpkin and s'mores toppings.</p>
+                            </div>
+                            <span class="price">$17.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>NY Strip Steak & Eggs</h4>
+                                <p>Premium steak with two eggs any style.</p>
+                            </div>
+                            <span class="price">$30.00</span>
+                        </div>
+                        <div class="menu-item">
+                            <div class="item-info">
+                                <h4>Maple Bacon Cheeseburger</h4>
+                                <p>Burger with maple glazed bacon and cheese.</p>
+                            </div>
+                            <span class="price">$17.00</span>
+                        </div>
+                    </div>
+                </div>
+                </div>
             </div>
-            
-            <div class="menu-cta">
-                <p>View our complete menu and place your order online</p>
-                <a href="https://order.toasttab.com/online/riversidecafegurnee" target="_blank" class="btn btn-primary">Order Online</a>
-            </div>
+
         </div>
     </section>
 
+    <!-- Events Section -->
+    <section id="events" class="events">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h2>Events & Venue</h2>
+                <p class="section-subtitle">Host your special occasion at Riverside Cafe</p>
+            </div>
+            <div class="events-content">
+                <div class="events-text">
+                    <h3>Perfect for Your Special Occasions</h3>
+                    <p>Riverside Cafe is more than just a restaurant – we're your premier venue for intimate gatherings, celebrations, and corporate events. Our charming space provides the perfect backdrop for memorable occasions.</p>
+
+                    <div class="events-features">
+                        <div class="feature-item">
+                            <h4>Private Events</h4>
+                            <p>Birthday celebrations, anniversaries, baby showers, and family gatherings</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Corporate Events</h4>
+                            <p>Business meetings, team building events, and client presentations</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Wedding Receptions</h4>
+                            <p>Intimate wedding receptions and rehearsal dinners</p>
+                        </div>
+                        <div class="feature-item">
+                            <h4>Special Occasions</h4>
+                            <p>Graduation parties, retirement celebrations, and milestone events</p>
+                        </div>
+                    </div>
+
+                    <div class="events-details">
+                        <div class="detail-item">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h5>Capacity</h5>
+                                <p>Up to 60 guests seated, 80 for standing reception</p>
+                            </div>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-utensils"></i>
+                            <div>
+                                <h5>Catering</h5>
+                                <p>Custom menus available for all events</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="events-cta">
+                        <p>Ready to host your event at Riverside Cafe?</p>
+                        <a href="tel:(847) 672-8736" class="btn btn-primary">Call (847) 672-8736</a>
+                        <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email for Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
@@ -229,6 +623,9 @@
         <div class="gallery-overlay"></div>
         <div class="container">
             <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-camera"></i>
+                </div>
                 <h2>Gallery</h2>
                 <p class="section-subtitle">A glimpse into Riverside Cafe life</p>
             </div>
@@ -282,9 +679,6 @@
                     <img src="images/Instagram_files/514747300_18057585611463461_2385899021232555189_n.jpg" alt="Cafe Atmosphere" onerror="this.src='images/placeholder.jpg'">
                 </div>
                 <div class="gallery-item">
-                    <img src="images/Instagram_files/516312420_18519270112030829_3119668436368913857_n.jpg" alt="Daily Specials" onerror="this.src='images/placeholder.jpg'">
-                </div>
-                <div class="gallery-item">
                     <img src="images/Instagram_files/521312852_18059137625463461_289204751391514766_n.jpg" alt="Weekend Brunch" onerror="this.src='images/placeholder.jpg'">
                 </div>
                 <div class="gallery-item">
@@ -299,19 +693,6 @@
                 <div class="gallery-item">
                     <img src="images/Instagram_files/were-hiring.jpg" alt="Join Our Team" onerror="this.src='images/placeholder.jpg'">
                 </div>
-            </div>
-            <div class="gallery-pagination">
-                <button class="pagination-btn prev-btn" disabled>
-                    <i class="fas fa-chevron-left"></i> Previous
-                </button>
-                <div class="pagination-dots">
-                    <span class="dot active" data-page="1"></span>
-                    <span class="dot" data-page="2"></span>
-                    <span class="dot" data-page="3"></span>
-                </div>
-                <button class="pagination-btn next-btn">
-                    Next <i class="fas fa-chevron-right"></i>
-                </button>
             </div>
         </div>
     </section>
@@ -350,10 +731,56 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2015 - 2024 Riverside Cafe</p>
+                <p>&copy; 2015 - 2025 Riverside Cafe</p>
             </div>
         </div>
     </footer>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Online</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Choose your preferred delivery service:</p>
+                <div class="order-options">
+                    <a href="https://order.toasttab.com/online/riversidecafegurnee" target="_blank" class="order-option toasttab">
+                        <div class="order-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>ToastTab</h4>
+                            <p>Direct ordering from Riverside Cafe</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.ubereats.com/store/riverside-cafe/XXXXXXX" target="_blank" class="order-option ubereats">
+                        <div class="order-icon">
+                            <i class="fab fa-uber"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>Uber Eats</h4>
+                            <p>Delivered by Uber Eats</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.doordash.com/store/riverside-cafe-gurnee-XXXXXXX" target="_blank" class="order-option doordash">
+                        <div class="order-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>DoorDash</h4>
+                            <p>Delivered by DoorDash</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

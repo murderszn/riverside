@@ -1,0 +1,24 @@
+{
+  "name": "riverside-cafe",
+  "version": "1.0.0",
+  "description": "Riverside Cafe - Gurnee, IL - Best breakfast in Lake County",
+  "main": "index.html",
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "echo 'Static site - no build step required'",
+    "start": "vercel dev"
+  },
+  "keywords": [
+    "restaurant",
+    "cafe",
+    "breakfast",
+    "gurnee",
+    "illinois",
+    "lake-county"
+  ],
+  "author": "Riverside Cafe",
+  "license": "MIT",
+  "devDependencies": {
+    "vercel": "^32.0.0"
+  }
+}

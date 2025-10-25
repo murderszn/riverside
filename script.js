@@ -106,28 +106,31 @@ document.querySelectorAll('img').forEach(img => {
     imageObserver.observe(img);
 });
 
-// Scroll-triggered animations
+// Scroll-triggered animations with improved performance
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.15,
+    rootMargin: '0px 0px -80px 0px'
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry, index) => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            // Add staggered delay for better visual flow
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 50);
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // Observe elements for scroll animations
 document.addEventListener('DOMContentLoaded', () => {
-    // Add scroll animation classes to elements
-    const animatedElements = document.querySelectorAll('.section-header, .about-content, .menu-category, .feature, .info-card, .gallery-item');
-    
-    animatedElements.forEach((el, index) => {
+    // Add scroll animation classes to elements with better performance
+    const animatedElements = document.querySelectorAll('.section-header, .about-content, .menu-category, .feature-item, .detail-item, .gallery-item');
+
+    animatedElements.forEach((el) => {
         el.classList.add('fade-in-up');
-        el.style.animationDelay = `${index * 0.1}s`;
         observer.observe(el);
     });
 
@@ -137,13 +140,32 @@ document.addEventListener('DOMContentLoaded', () => {
         card.classList.add('hover-lift');
     });
 
-    // Parallax effect for hero section
+    // Optimize hero animations and add subtle parallax
     const hero = document.querySelector('.hero');
+    const heroTitle = document.querySelector('.hero-title');
+    const heroDetails = document.querySelector('.hero-details');
+
+    // Start hero animations immediately
+    if (heroTitle) {
+        heroTitle.style.animationPlayState = 'running';
+    }
+    if (heroDetails) {
+        heroDetails.style.animationPlayState = 'running';
+    }
+
+    // Subtle parallax effect for hero background
     if (hero) {
+        let ticking = false;
         window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const rate = scrolled * -0.5;
-            hero.style.transform = `translateY(${rate}px)`;
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.3;
+                    hero.style.transform = `translateY(${rate}px)`;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     }
 
@@ -155,106 +177,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    console.log('Riverside Cafe website loaded successfully!');
+    // Modal functionality
+    const orderBtn = document.getElementById('order-btn');
+    const orderModal = document.getElementById('order-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalOverlay = document.getElementById('modal-overlay');
 
-    // Initialize gallery pagination after a short delay to ensure DOM is ready
-    setTimeout(() => {
-        initGalleryPagination();
-    }, 100);
-});
+    // Function to show modal
+    function showModal() {
+        orderModal.classList.add('show');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
 
-// Gallery Pagination Function
-function initGalleryPagination() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    const dots = document.querySelectorAll('.dot');
+    // Function to hide modal
+    function hideModal() {
+        orderModal.classList.remove('show');
+        document.body.style.overflow = ''; // Restore scrolling
+    }
 
-    console.log('Gallery pagination debug:', {
-        galleryItems: galleryItems.length,
-        prevBtn: !!prevBtn,
-        nextBtn: !!nextBtn,
-        dots: dots.length
+    // Event listeners for modal
+    if (orderBtn) {
+        orderBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal();
+        });
+    }
+
+    if (modalClose) {
+        modalClose.addEventListener('click', hideModal);
+    }
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', hideModal);
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && orderModal.classList.contains('show')) {
+            hideModal();
+        }
     });
 
-    if (galleryItems.length > 0 && prevBtn && nextBtn && dots.length > 0) {
-        const itemsPerPage = 6;
-        const totalPages = Math.ceil(galleryItems.length / itemsPerPage);
-        let currentPage = 1;
-
-        // Function to show items for current page
-        function showPage(page) {
-            const startIndex = (page - 1) * itemsPerPage;
-            const endIndex = startIndex + itemsPerPage;
-
-            galleryItems.forEach((item, index) => {
-                if (index >= startIndex && index < endIndex) {
-                    item.style.display = 'block';
-                    // Add fade-in animation
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, index * 50);
-                } else {
-                    item.style.display = 'none';
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                }
-            });
-
-            // Update dots
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index + 1 === page);
-            });
-
-            // Update buttons
-            prevBtn.disabled = page === 1;
-            nextBtn.disabled = page === totalPages;
-
-            currentPage = page;
-        }
-
-        // Initialize gallery with transition styles
-        galleryItems.forEach(item => {
-            item.style.transition = 'all 0.3s ease';
-            item.style.opacity = '0';
-            item.style.transform = 'translateY(20px)';
-        });
-
-        // Button event listeners
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                showPage(currentPage - 1);
-            }
-        });
-
-        nextBtn.addEventListener('click', () => {
-            if (currentPage < totalPages) {
-                showPage(currentPage + 1);
-            }
-        });
-
-        // Dot event listeners
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showPage(index + 1);
-            });
-        });
-
-        // Show first page on load
-        showPage(1);
-
-        // Keyboard navigation
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'ArrowLeft' && currentPage > 1) {
-                showPage(currentPage - 1);
-            } else if (e.key === 'ArrowRight' && currentPage < totalPages) {
-                showPage(currentPage + 1);
-            }
-        });
-
-        console.log(`Gallery pagination initialized: ${galleryItems.length} items, ${totalPages} pages`);
-    } else {
-        console.error('Gallery pagination elements not found!');
-    }
-}
+    console.log('Riverside Cafe website loaded successfully!');
+});
