@@ -27,19 +27,35 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// Smooth scrolling for navigation links
+// Compute dynamic offset for fixed navbar + promo banner
+function getFixedOffset() {
+    const navbarEl = document.querySelector('.navbar');
+    const bannerEl = document.getElementById('promo-banner');
+    const navHeight = navbarEl ? navbarEl.offsetHeight : 0;
+    let bannerHeight = 0;
+    if (bannerEl) {
+        const bannerStyle = getComputedStyle(bannerEl);
+        if (bannerStyle.position === 'fixed') {
+            bannerHeight = bannerEl.offsetHeight;
+        }
+    }
+    return navHeight + bannerHeight;
+}
+
+// Smooth scrolling for navigation links with dynamic offset
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 80;
+            const offset = getFixedOffset();
             const elementPosition = target.offsetTop;
-            const offsetPosition = elementPosition - headerOffset;
+            const offsetPosition = Math.max(elementPosition - offset, 0);
 
+            const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
             window.scrollTo({
                 top: offsetPosition,
-                behavior: 'smooth'
+                behavior: prefersReduced ? 'auto' : 'smooth'
             });
         }
     });
@@ -51,12 +67,11 @@ const navLinksArray = Array.from(navLinks);
 
 window.addEventListener('scroll', () => {
     let current = '';
+    const offset = getFixedOffset() + 20; // small cushion
 
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-
-        if (pageYOffset >= sectionTop - 100) {
+        if (pageYOffset >= sectionTop - offset) {
             current = section.getAttribute('id');
         }
     });
@@ -153,8 +168,9 @@ document.addEventListener('DOMContentLoaded', () => {
         heroDetails.style.animationPlayState = 'running';
     }
 
-    // Subtle parallax effect for hero background
-    if (hero) {
+    // Subtle parallax effect for hero background (disabled for reduced motion)
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (hero && !reduceMotion) {
         let ticking = false;
         window.addEventListener('scroll', () => {
             if (!ticking) {
@@ -169,12 +185,54 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Set loading/decoding hints for images
+    const navLogoImg = document.querySelector('.nav-logo img');
+    document.querySelectorAll('img').forEach(img => {
+        if (img === navLogoImg) {
+            img.loading = 'eager';
+            img.decoding = 'async';
+            return;
+        }
+        if (img.id === 'hero-fallback') {
+            img.decoding = 'async';
+            return;
+        }
+        img.loading = 'lazy';
+        img.decoding = 'async';
+    });
+
     // Add loading animation to images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
         img.addEventListener('load', () => {
             img.classList.add('loaded');
         });
+    });
+
+    // Ensure gallery marquee images always render (fallback if any fail)
+    const placeholderSrc = 'images/placeholder.jpg';
+    const galleryImgs = document.querySelectorAll('.gallery .gallery-item img');
+    galleryImgs.forEach(img => {
+        // Hint performance
+        img.loading = img.loading || 'lazy';
+        img.decoding = img.decoding || 'async';
+
+        // If an image fails, swap to placeholder
+        img.addEventListener('error', () => {
+            if (img.src.indexOf(placeholderSrc) === -1) {
+                img.src = placeholderSrc;
+            }
+        }, { once: true });
+
+        // Proactively test the source to trigger error early
+        const probe = new Image();
+        probe.onload = () => {};
+        probe.onerror = () => {
+            if (img.src.indexOf(placeholderSrc) === -1) {
+                img.src = placeholderSrc;
+            }
+        };
+        probe.src = img.currentSrc || img.src;
     });
 
     // Modal functionality

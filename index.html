@@ -7,20 +7,28 @@
     <meta name="description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
     <meta name="keywords" content="Riverside Cafe, Gurnee, Illinois, breakfast, pancakes, Lake County, restaurant, cafe, dining">
     <meta name="author" content="Riverside Cafe">
-    
+    <meta name="theme-color" content="#000000">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/Instagram_files/logo-big.jpg">
+    <link rel="apple-touch-icon" href="images/Instagram_files/logo-big.jpg">
+    <link rel="shortcut icon" href="images/Instagram_files/logo-big.jpg">
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://riverside-cafe.vercel.app/">
-    <meta property="og:title" content="Riverside Cafe - Best Breakfast in Lake County">
-    <meta property="og:description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
-    <meta property="og:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/building-front.jpg">
+    <meta property="og:title" content="Riverside Cafe">
+    <meta property="og:description" content="Fresh breakfast and coffee in Gurnee, IL. Made fresh daily since 2015.">
+    <meta property="og:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/logo-big.jpg">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://riverside-cafe.vercel.app/">
-    <meta property="twitter:title" content="Riverside Cafe - Best Breakfast in Lake County">
-    <meta property="twitter:description" content="Welcome to Riverside Cafe in Gurnee, IL. Famous for our delicious pancakes and breakfast items served with warm hospitality. Open daily.">
-    <meta property="twitter:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/building-front.jpg">
+    <meta property="twitter:title" content="Riverside Cafe">
+    <meta property="twitter:description" content="Fresh breakfast and coffee in Gurnee, IL. Made fresh daily since 2015.">
+    <meta property="twitter:image" content="https://riverside-cafe.vercel.app/images/Instagram_files/logo-big.jpg">
     
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -65,18 +73,19 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <video id="hero-video" autoplay muted loop playsinline preload="metadata"
+            <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/Instagram_files/building-front.jpg"
                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                 <source src="riverside-live.mp4" type="video/mp4">
                 <source src="riverside-live.mov" type="video/quicktime">
                 <!-- Fallback image - shown only if video fails -->
-                <img id="hero-fallback" src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
+                <img id="hero-fallback" src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'" loading="eager" fetchpriority="high" decoding="async" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
             </video>
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1 class="hero-title">Riverside Café</h1>
             <div class="hero-divider"></div>
+            <div class="hero-subtitle">GURNEE</div>
             <div class="hero-details">
                 <p>401 N. Riverside Dr, Gurnee, IL</p>
                 <p>(847) 672-8736</p>
@@ -87,7 +96,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="about-background">
-            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'">
+            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
         </div>
         <div class="about-overlay"></div>
         <div class="container">
@@ -615,7 +624,7 @@
     <!-- Events Section -->
     <section id="events" class="events">
         <div class="events-background">
-            <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Venue" onerror="this.src='images/placeholder.jpg'">
+            <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Venue" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
         </div>
         <div class="events-overlay"></div>
         <div class="container">
@@ -685,7 +694,7 @@
     <!-- Gallery Section -->
     <section id="gallery" class="gallery">
         <div class="gallery-background">
-            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'">
+            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
         </div>
         <div class="gallery-overlay"></div>
         <div class="container">
@@ -866,6 +875,7 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2015 - 2025 Riverside Cafe</p>
+                <p class="dev-tag">made by AURABLOX</p>
             </div>
         </div>
     </footer>
