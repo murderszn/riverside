@@ -39,10 +39,10 @@
             <a href="rewards.html" style="color: inherit; text-decoration: none;">
                 <div class="promo-marquee">
                     <span class="promo-text">
-                        👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
+                        🥞 Hey Lake County! We're rolling out the Riverside Rewards Program soon! 🎉 Click to get notified when we launch! ✨
                     </span>
                     <span class="promo-text">
-                        👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
+                        🥞 Hey Lake County! We're rolling out the Riverside Rewards Program soon! 🎉 Click to get notified when we launch! ✨
                     </span>
                 </div>
             </a>
@@ -117,9 +117,12 @@
                             <input type="tel" id="rewards-phone" placeholder="(847) 555-0123">
                         </div>
 
-                        <div class="form-group checkbox-group">
-                            <input type="checkbox" id="rewards-terms" required>
+                        <div class="form-group toggle-group">
                             <label for="rewards-terms">I agree to receive updates about Riverside Rewards and special offers</label>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="rewards-terms" required>
+                                <span class="toggle-slider"></span>
+                            </div>
                         </div>
 
                         <button type="submit" class="btn btn-primary signup-btn">
@@ -278,10 +281,13 @@
                     const email = document.getElementById('rewards-email').value;
                     const name = document.getElementById('rewards-name').value;
                     const phone = document.getElementById('rewards-phone').value;
-                    const terms = document.getElementById('rewards-terms').checked;
+                    const termsCheckbox = document.getElementById('rewards-terms');
+                    const terms = termsCheckbox.checked;
+
+                    console.log('Toggle checked:', terms); // Debug log
 
                     if (!terms) {
-                        signupMessage.textContent = 'Please agree to receive updates about Riverside Rewards.';
+                        signupMessage.textContent = 'Please turn on the toggle to agree to receive updates about Riverside Rewards.';
                         signupMessage.className = 'signup-message error';
                         return;
                     }

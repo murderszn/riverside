@@ -209,7 +209,64 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Ensure gallery marquee images always render (fallback if any fail)
+    // Gallery filter functionality
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            button.classList.add('active');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            galleryItems.forEach(item => {
+                if (filterValue === 'all') {
+                    item.style.display = 'block';
+                    // Re-trigger animation for visible items
+                    setTimeout(() => {
+                        item.classList.add('visible');
+                    }, 50);
+                } else {
+                    const itemCategory = item.getAttribute('data-category');
+                    if (itemCategory === filterValue) {
+                        item.style.display = 'block';
+                        // Re-trigger animation for visible items
+                        setTimeout(() => {
+                            item.classList.add('visible');
+                        }, 50);
+                    } else {
+                        item.style.display = 'none';
+                        item.classList.remove('visible');
+                    }
+                }
+            });
+        });
+    });
+
+    // Gallery staggered animations
+    const galleryObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    entry.target.classList.add('visible');
+                }, index * 100);
+                galleryObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    // Observe gallery items for animations
+    galleryItems.forEach(item => {
+        galleryObserver.observe(item);
+    });
+
+    // Ensure gallery images always render (fallback if any fail)
     const placeholderSrc = 'images/placeholder.jpg';
     const galleryImgs = document.querySelectorAll('.gallery .gallery-item img');
     galleryImgs.forEach(img => {
