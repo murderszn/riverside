@@ -1,24 +1,23 @@
 {
-  "name": "riverside-cafe",
+  "name": "riverside-cafe-local-dev",
   "version": "1.0.0",
-  "description": "Riverside Cafe - Gurnee, IL - Best breakfast in Lake County",
-  "main": "index.html",
+  "description": "Local development server for Riverside Cafe",
+  "main": "local-server.js",
   "scripts": {
-    "dev": "vercel dev",
-    "build": "echo 'Static site - no build step required'",
-    "start": "vercel dev"
+    "dev": "node local-server.js",
+    "start": "node local-server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.18.2"
   },
   "keywords": [
-    "restaurant",
+    "riverside",
     "cafe",
-    "breakfast",
-    "gurnee",
-    "illinois",
-    "lake-county"
+    "rewards",
+    "webhook"
   ],
   "author": "Riverside Cafe",
-  "license": "MIT",
-  "devDependencies": {
-    "vercel": "^32.0.0"
-  }
+  "license": "MIT"
 }

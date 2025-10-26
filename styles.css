@@ -1781,6 +1781,37 @@ img {
     font-size: 1rem;
 }
 
+/* Contact Info with Icons */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    justify-content: center;
+}
+
+.contact-item i {
+    color: #d4a574;
+    font-size: 1rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+    width: 16px;
+    text-align: center;
+}
+
+.contact-item span {
+    flex: 1;
+    text-align: left;
+}
+
 .social-logos {
     display: flex;
     gap: 20px;
@@ -3492,5 +3523,16 @@ img {
     .rewards-cta .btn {
         min-width: 160px;
         margin: 0 5px 10px 0;
+    }
+
+    /* Contact Info Mobile */
+    .contact-item {
+        font-size: 0.9rem;
+        gap: 10px;
+    }
+
+    .contact-item i {
+        font-size: 0.9rem;
+        width: 14px;
     }
 }
