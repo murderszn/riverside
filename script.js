@@ -237,6 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Modal functionality
     const orderBtn = document.getElementById('order-btn');
+    const mobileOrderBtn = document.getElementById('mobile-order-btn');
     const orderModal = document.getElementById('order-modal');
     const modalClose = document.getElementById('modal-close');
     const modalOverlay = document.getElementById('modal-overlay');
@@ -256,6 +257,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Event listeners for modal
     if (orderBtn) {
         orderBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            showModal();
+        });
+    }
+
+    if (mobileOrderBtn) {
+        mobileOrderBtn.addEventListener('click', function(e) {
             e.preventDefault();
             showModal();
         });

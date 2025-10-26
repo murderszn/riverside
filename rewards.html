@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riverside Rewards - Sign Up</title>
+    <meta name="description" content="Join Riverside Cafe's rewards program for exclusive benefits, points, and special offers.">
+    <meta name="theme-color" content="#000000">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/logo-favicon.jpg">
+    <link rel="apple-touch-icon" href="images/logo-favicon.jpg">
+    <link rel="shortcut icon" href="images/logo-favicon.jpg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riverside-cafe.vercel.app/rewards.html">
+    <meta property="og:title" content="Riverside Rewards - Sign Up">
+    <meta property="og:description" content="Join Riverside Cafe's rewards program for exclusive benefits, points, and special offers.">
+    <meta property="og:image" content="https://riverside-cafe.vercel.app/images/logo-favicon.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://riverside-cafe.vercel.app/rewards.html">
+    <meta property="twitter:title" content="Riverside Rewards - Sign Up">
+    <meta property="twitter:description" content="Join Riverside Cafe's rewards program for exclusive benefits, points, and special offers.">
+    <meta property="twitter:image" content="https://riverside-cafe.vercel.app/images/logo-favicon.jpg">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Promo Banner -->
+    <div class="promo-banner" id="promo-banner">
+        <div class="promo-content">
+            <span class="promo-text">
+                👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
+            </span>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <div class="nav-menu">
+                    <a href="#" class="nav-link mobile-order-btn" id="mobile-order-btn">
+                        <i class="fas fa-utensils"></i>
+                        <span>Order Online</span>
+                    </a>
+                    <a href="index.html#home" class="nav-link">Home</a>
+                    <a href="index.html#about" class="nav-link">Our Story</a>
+                    <a href="index.html#menu" class="nav-link">Menu</a>
+                    <a href="index.html#events" class="nav-link">Events</a>
+                    <a href="index.html#gallery" class="nav-link">Gallery</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="nav-link order-btn" id="order-btn">
+                    <i class="fas fa-utensils"></i>
+                    <span>Order Online</span>
+                </a>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Rewards Signup Page -->
+    <section class="rewards-page">
+        <div class="rewards-background">
+            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
+        </div>
+        <div class="rewards-overlay"></div>
+        <div class="container">
+            <div class="rewards-content">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h2>Riverside Rewards</h2>
+                    <p class="section-subtitle">Join our exclusive rewards program and start earning points today</p>
+                </div>
+
+                <div class="rewards-signup-card">
+                    <div class="signup-header">
+                        <h3>Be the First to Know!</h3>
+                        <p>Riverside Rewards is coming soon. Sign up now to get notified when we launch and receive exclusive early access benefits.</p>
+                    </div>
+
+                    <form id="rewards-signup-form" class="signup-form">
+                        <div class="form-group">
+                            <label for="rewards-email">Email Address</label>
+                            <input type="email" id="rewards-email" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="rewards-name">Full Name</label>
+                            <input type="text" id="rewards-name" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rewards-phone">Phone Number (Optional)</label>
+                            <input type="tel" id="rewards-phone" placeholder="(847) 555-0123">
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="rewards-terms" required>
+                            <label for="rewards-terms">I agree to receive updates about Riverside Rewards and special offers</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary signup-btn">
+                            <i class="fas fa-envelope"></i>
+                            Join Riverside Rewards
+                        </button>
+                    </form>
+
+                    <div id="signup-message" class="signup-message"></div>
+                </div>
+
+                <div class="rewards-benefits">
+                    <h3>What You'll Get</h3>
+                    <div class="benefits-grid">
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4>Earn Points</h4>
+                            <p>Get points for every dollar spent at Riverside Cafe</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-percent"></i>
+                            </div>
+                            <h4>Exclusive Discounts</h4>
+                            <p>Access to member-only deals and special offers</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-birthday-cake"></i>
+                            </div>
+                            <h4>Birthday Treats</h4>
+                            <p>Special birthday rewards and surprises</p>
+                        </div>
+                        <div class="benefit-item">
+                            <div class="benefit-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <h4>Early Access</h4>
+                            <p>Be the first to know about new menu items and events</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rewards-cta">
+                    <p>Questions about Riverside Rewards?</p>
+                    <a href="tel:(847) 672-8736" class="btn btn-secondary">Call (847) 672-8736</a>
+                    <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-background">
+            <img src="images/Instagram_files/team.jpg" alt="Riverside Cafe Team" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
+        </div>
+        <div class="footer-overlay"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-logos">
+                        <a href="https://www.facebook.com/riversidecafegurnee" target="_blank" class="social-logo facebook" title="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/riversidecafegurnee/" target="_blank" class="social-logo instagram" title="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.yelp.com/biz/riverside-cafe-gurnee" target="_blank" class="social-logo yelp" title="Yelp Reviews">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                        <a href="https://www.google.com/search?q=Riverside+Cafe+Gurnee+IL" target="_blank" class="social-logo google" title="Google Reviews">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>401 N. Riverside Dr Unit 7/8<br>Gurnee, IL 60031</p>
+                    <p>Phone: (847) 672-8736</p>
+                    <p>Email: info@riversidepancakes.com</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Hours</h4>
+                    <p><strong>Monday - Friday:</strong><br>7:00 AM - 3:00 PM</p>
+                    <p><strong>Saturday - Sunday:</strong><br>7:00 AM - 2:00 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2015 - 2025 Riverside Cafe</p>
+                <p class="dev-tag">made by AURABLOX</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Order Modal -->
+    <div id="order-modal" class="modal">
+        <div class="modal-overlay" id="modal-overlay"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Online</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="modal-description">Choose your preferred delivery service:</p>
+                <div class="order-options">
+                    <a href="https://order.toasttab.com/online/riversidecafegurnee" target="_blank" class="order-option toasttab">
+                        <div class="order-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>Toast</h4>
+                            <p>Direct ordering from Riverside Cafe</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.ubereats.com/store/riverside-cafes/vfCQYadAWWaaXVJzfDzdow?srsltid=AfmBOooycwewQqsjfx_0JOS-82SYhGJ5EEuK6jDZMRGQrh6HkCK97Gv-" target="_blank" class="order-option ubereats">
+                        <div class="order-icon">
+                            <i class="fab fa-uber"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>Uber Eats</h4>
+                            <p>Delivered by Uber Eats</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="https://www.grubhub.com/restaurant/riverside-cafe-401-n-riverside-dr-gurnee/2440928" target="_blank" class="order-option grubhub">
+                        <div class="order-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <div class="order-info">
+                            <h4>Grubhub</h4>
+                            <p>Delivered by Grubhub</p>
+                        </div>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Rewards signup form handling
+        document.addEventListener('DOMContentLoaded', function() {
+            const rewardsSignupForm = document.getElementById('rewards-signup-form');
+            const signupMessage = document.getElementById('signup-message');
+
+            if (rewardsSignupForm) {
+                rewardsSignupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = document.getElementById('rewards-email').value;
+                    const name = document.getElementById('rewards-name').value;
+                    const phone = document.getElementById('rewards-phone').value;
+                    const terms = document.getElementById('rewards-terms').checked;
+
+                    if (!terms) {
+                        signupMessage.textContent = 'Please agree to receive updates about Riverside Rewards.';
+                        signupMessage.className = 'signup-message error';
+                        return;
+                    }
+
+                    // Show success message
+                    signupMessage.textContent = `Thank you ${name}! We'll notify you when Riverside Rewards launches. Check your email for confirmation.`;
+                    signupMessage.className = 'signup-message success';
+
+                    // Reset form after 5 seconds
+                    setTimeout(function() {
+                        rewardsSignupForm.reset();
+                        signupMessage.textContent = '';
+                        signupMessage.className = 'signup-message';
+                    }, 5000);
+                });
+            }
+
+            // Modal functionality for order buttons
+            const orderBtn = document.getElementById('order-btn');
+            const mobileOrderBtn = document.getElementById('mobile-order-btn');
+            const orderModal = document.getElementById('order-modal');
+            const modalClose = document.getElementById('modal-close');
+            const modalOverlay = document.getElementById('modal-overlay');
+
+            // Function to show modal
+            function showModal() {
+                orderModal.classList.add('show');
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            // Function to hide modal
+            function hideModal() {
+                orderModal.classList.remove('show');
+                document.body.style.overflow = ''; // Restore scrolling
+            }
+
+            // Event listeners for modal
+            if (orderBtn) {
+                orderBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal();
+                });
+            }
+
+            if (mobileOrderBtn) {
+                mobileOrderBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showModal();
+                });
+            }
+
+            if (modalClose) {
+                modalClose.addEventListener('click', hideModal);
+            }
+
+            if (modalOverlay) {
+                modalOverlay.addEventListener('click', hideModal);
+            }
+
+            // Close modal on Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && orderModal.classList.contains('show')) {
+                    hideModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

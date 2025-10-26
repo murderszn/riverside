@@ -12,9 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="images/Instagram_files/logo-big.jpg">
-    <link rel="apple-touch-icon" href="images/Instagram_files/logo-big.jpg">
-    <link rel="shortcut icon" href="images/Instagram_files/logo-big.jpg">
+    <link rel="icon" type="image/x-icon" href="images/logo-favicon.jpg">
+    <link rel="apple-touch-icon" href="images/logo-favicon.jpg">
+    <link rel="shortcut icon" href="images/logo-favicon.jpg">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -38,34 +38,40 @@
     <!-- Promo Banner -->
     <div class="promo-banner" id="promo-banner">
         <div class="promo-content">
-            <span class="promo-text">
-                👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
-            </span>
+            <a href="rewards.html" style="color: inherit; text-decoration: none;">
+                <span class="promo-text">
+                    👋 Hey Lake County! Best pancakes in town here. We're rolling out the Riverside Rewards Program soon! Click to get notified when we launch.
+                </span>
+            </a>
         </div>
     </div>
 
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
-                <img src="images/Instagram_files/logo-small.jpg" alt="Riverside Cafe Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <span style="display: none;">Riverside Cafe</span>
+            <div class="nav-left">
+                <div class="nav-menu">
+                    <a href="#" class="nav-link mobile-order-btn" id="mobile-order-btn">
+                        <i class="fas fa-utensils"></i>
+                        <span>Order Online</span>
+                    </a>
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">Our Story</a>
+                    <a href="#menu" class="nav-link">Menu</a>
+                    <a href="#events" class="nav-link">Events</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                </div>
             </div>
-            <div class="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
-                <a href="#about" class="nav-link">Our Story</a>
-                <a href="#menu" class="nav-link">Menu</a>
-                <a href="#events" class="nav-link">Events</a>
-                <a href="#gallery" class="nav-link">Gallery</a>
+            <div class="nav-right">
                 <a href="#" class="nav-link order-btn" id="order-btn">
                     <i class="fas fa-utensils"></i>
                     <span>Order Online</span>
                 </a>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
     </nav>
@@ -133,6 +139,9 @@
     <section id="menu" class="menu">
         <div class="container">
             <div class="section-header">
+                <div class="section-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
                 <h2>Our Menu</h2>
                 <p class="section-subtitle">Fresh, local ingredients crafted with care</p>
             </div>
@@ -175,42 +184,36 @@
                             <div class="item-info">
                                 <h4>Hot Coffee</h4>
                                 <p>12oz: $3.50 | 16oz: $4.00 | 20oz: $4.50</p>
-                                <span class="calories">~5 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Latte</h4>
                                 <p>12oz: $4.50 | 16oz: $6.00 | 20oz: $6.50</p>
-                                <span class="calories">~200 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Cappuccino</h4>
                                 <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $6.50</p>
-                                <span class="calories">~120 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Matcha Green Tea Latte</h4>
                                 <p>12oz: $5.00 | 16oz: $7.00 | 20oz: $7.00</p>
-                                <span class="calories">~250 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Cold Brew</h4>
                                 <p>12oz: $4.50 | 16oz: $5.00 | 20oz: $5.50</p>
-                                <span class="calories">~5 calories</span>
                             </div>
                         </div>
                         <div class="menu-item">
                             <div class="item-info">
                                 <h4>Iced Cold Foam Pumpkin Chai</h4>
                                 <p>12oz: $7.00 | 16oz: $7.50 | 20oz: $8.00</p>
-                                <span class="calories">~300 calories</span>
                             </div>
                         </div>
                     </div>
@@ -705,6 +708,19 @@
                 <h2>Gallery</h2>
                 <p class="section-subtitle">A glimpse into Riverside Cafe life</p>
             </div>
+            <div class="gallery-cta">
+                <p>Want to see more photos? Check out our reviews and customer photos!</p>
+                <div class="gallery-links">
+                    <a href="https://www.yelp.com/biz/riverside-cafe-gurnee" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-yelp"></i>
+                        View on Yelp
+                    </a>
+                    <a href="https://www.google.com/search?q=Riverside+Cafe+Gurnee+IL" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-google"></i>
+                        View on Google
+                    </a>
+                </div>
+            </div>
             <div class="gallery-marquee">
                 <div class="marquee-track">
                     <div class="gallery-item">
@@ -850,14 +866,18 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/riversidecafegurnee" target="_blank" class="social-link facebook">
+                    <div class="social-logos">
+                        <a href="https://www.facebook.com/riversidecafegurnee" target="_blank" class="social-logo facebook" title="Facebook">
                             <i class="fab fa-facebook-f"></i>
-                            <span>Facebook</span>
                         </a>
-                        <a href="https://www.instagram.com/riversidecafegurnee/" target="_blank" class="social-link instagram">
+                        <a href="https://www.instagram.com/riversidecafegurnee/" target="_blank" class="social-logo instagram" title="Instagram">
                             <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
+                        </a>
+                        <a href="https://www.yelp.com/biz/riverside-cafe-gurnee" target="_blank" class="social-logo yelp" title="Yelp Reviews">
+                            <i class="fab fa-yelp"></i>
+                        </a>
+                        <a href="https://www.google.com/search?q=Riverside+Cafe+Gurnee+IL" target="_blank" class="social-logo google" title="Google Reviews">
+                            <i class="fab fa-google"></i>
                         </a>
                     </div>
                 </div>
@@ -926,37 +946,6 @@
         </div>
     </div>
 
-    <!-- Rewards Modal -->
-    <div id="rewards-modal" class="modal">
-        <div class="modal-overlay" id="rewards-modal-overlay"></div>
-        <div class="modal-content rewards-modal-content">
-            <div class="modal-header">
-                <h3><i class="fas fa-gift"></i> Riverside Rewards Program</h3>
-                <button class="modal-close" id="rewards-modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                    <div class="rewards-content">
-                        <h4>Riverside Rewards Coming Soon!</h4>
-                        <p>Join our rewards program for exclusive benefits including points, discounts, and special offers.</p>
-
-                        <div class="signup-section">
-                            <p>Be the first to know when we launch!</p>
-
-                            <form id="rewards-signup-form" class="signup-form">
-                                <div class="form-group">
-                                    <input type="email" id="rewards-email" placeholder="Your email" required>
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="fas fa-envelope"></i>
-                                        Notify Me
-                                    </button>
-                                </div>
-                                <div id="signup-message" class="signup-message"></div>
-                            </form>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Return to Top Button -->
     <button id="return-to-top" class="return-to-top" style="display: none;">
@@ -978,63 +967,22 @@
                 }
             });
 
-            // Scroll to top when clicked
-            returnToTopBtn.addEventListener('click', function() {
+            // Scroll to top when clicked or touched
+            function scrollToTop() {
+                const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
                 window.scrollTo({
                     top: 0,
-                    behavior: 'smooth'
+                    behavior: prefersReduced ? 'auto' : 'smooth'
                 });
-            });
-
-            // Rewards Modal Functionality
-            const promoBanner = document.getElementById('promo-banner');
-            const rewardsModal = document.getElementById('rewards-modal');
-            const rewardsModalClose = document.getElementById('rewards-modal-close');
-            const rewardsModalOverlay = document.getElementById('rewards-modal-overlay');
-            const rewardsSignupForm = document.getElementById('rewards-signup-form');
-            const signupMessage = document.getElementById('signup-message');
-
-            // Open modal
-            promoBanner.addEventListener('click', function() {
-                rewardsModal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-            });
-
-            // Close modal functions
-            function closeRewardsModal() {
-                rewardsModal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                rewardsSignupForm.reset();
-                signupMessage.textContent = '';
-                signupMessage.className = 'signup-message';
             }
 
-            rewardsModalClose.addEventListener('click', closeRewardsModal);
-            rewardsModalOverlay.addEventListener('click', closeRewardsModal);
-
-            // Close modal on Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && rewardsModal.style.display === 'block') {
-                    closeRewardsModal();
-                }
-            });
-
-            // Handle form submission
-            rewardsSignupForm.addEventListener('submit', function(e) {
+            // Support both click and touch events
+            returnToTopBtn.addEventListener('click', scrollToTop);
+            returnToTopBtn.addEventListener('touchend', function(e) {
                 e.preventDefault();
-                const email = document.getElementById('rewards-email').value;
-
-                // Show success message
-                signupMessage.textContent = 'Thank you for your interest! We\'ll notify you when Riverside Rewards launches.';
-                signupMessage.className = 'signup-message success';
-
-                // Reset form after 3 seconds
-                setTimeout(function() {
-                    rewardsSignupForm.reset();
-                    signupMessage.textContent = '';
-                    signupMessage.className = 'signup-message';
-                }, 3000);
+                scrollToTop();
             });
+
         });
     </script>
 </body>
