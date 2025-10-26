@@ -275,7 +275,7 @@
             const signupMessage = document.getElementById('signup-message');
 
             if (rewardsSignupForm) {
-                rewardsSignupForm.addEventListener('submit', function(e) {
+                rewardsSignupForm.addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
                     const email = document.getElementById('rewards-email').value;
@@ -283,23 +283,64 @@
                     const phone = document.getElementById('rewards-phone').value;
                     const termsCheckbox = document.getElementById('rewards-terms');
                     const terms = termsCheckbox.checked;
+                    const submitBtn = rewardsSignupForm.querySelector('button[type="submit"]');
 
+                    // Validate terms agreement
                     if (!terms) {
                         signupMessage.textContent = 'Please turn on the toggle to agree to receive updates about Riverside Rewards.';
                         signupMessage.className = 'signup-message error';
                         return;
                     }
 
-                    // Show success message
-                    signupMessage.textContent = `Thank you ${name}! We'll notify you when Riverside Rewards launches. Check your email for confirmation.`;
-                    signupMessage.className = 'signup-message success';
+                    // Show loading state
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Signing Up...';
+                    signupMessage.textContent = 'Signing you up for Riverside Rewards...';
+                    signupMessage.className = 'signup-message';
 
-                    // Reset form after 5 seconds
-                    setTimeout(function() {
-                        rewardsSignupForm.reset();
-                        signupMessage.textContent = '';
-                        signupMessage.className = 'signup-message';
-                    }, 5000);
+                    try {
+                        // Send data to webhook
+                        const response = await fetch('/api/rewards-signup', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({
+                                email: email,
+                                name: name,
+                                phone: phone,
+                                terms: terms
+                            })
+                        });
+
+                        const result = await response.json();
+
+                        if (response.ok) {
+                            // Success
+                            signupMessage.textContent = `Thank you ${name}! We'll notify you when Riverside Rewards launches. Check your email for confirmation.`;
+                            signupMessage.className = 'signup-message success';
+                            
+                            // Reset form after 5 seconds
+                            setTimeout(function() {
+                                rewardsSignupForm.reset();
+                                signupMessage.textContent = '';
+                                signupMessage.className = 'signup-message';
+                            }, 5000);
+                        } else {
+                            // Error from server
+                            signupMessage.textContent = result.error || 'Something went wrong. Please try again.';
+                            signupMessage.className = 'signup-message error';
+                        }
+                    } catch (error) {
+                        // Network or other error
+                        console.error('Signup error:', error);
+                        signupMessage.textContent = 'Unable to connect. Please check your internet connection and try again.';
+                        signupMessage.className = 'signup-message error';
+                    } finally {
+                        // Reset button state
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<i class="fas fa-envelope"></i> Join Riverside Rewards';
+                    }
                 });
             }
 

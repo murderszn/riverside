@@ -1438,10 +1438,23 @@ img {
     box-shadow: var(--shadow-sm);
 }
 
-.rating-item:hover {
+.rating-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.rating-link:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-md);
     border-color: #d4a574;
+    text-decoration: none;
+    color: inherit;
+}
+
+.rating-link:focus {
+    outline: 2px solid #d4a574;
+    outline-offset: 2px;
 }
 
 .rating-platform {
@@ -3264,6 +3277,30 @@ img {
     background: var(--text-white);
     color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+.signup-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    background: #ccc;
+    border-color: #ccc;
+    color: #666;
+}
+
+.signup-btn:disabled:hover {
+    background: #ccc;
+    color: #666;
+    border-color: #ccc;
+}
+
+/* Loading spinner animation */
+.fa-spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .signup-message {
