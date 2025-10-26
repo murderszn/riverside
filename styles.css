@@ -39,26 +39,50 @@ img {
     display: block;
 }
 
-/* Canlis-inspired CSS Variables */
+/* Refined Minimalist CSS Variables */
 :root {
-    --primary-color: #000000;
-    --primary-light: #333333;
-    --secondary-color: #666666;
-    --accent-color: #f5f5f5;
-    --text-dark: #000000;
-    --text-light: #666666;
-    --text-muted: #999999;
+    /* Core Colors */
+    --primary-color: #1a1a1a;
+    --primary-light: #4a4a4a;
+    --secondary-color: #8b8b8b;
+    --accent-color: #f8f8f8;
+    
+    /* Text Colors */
+    --text-dark: #1a1a1a;
+    --text-light: #6b6b6b;
+    --text-muted: #a0a0a0;
+    --text-white: #ffffff;
+    
+    /* Background Colors */
     --bg-light: #ffffff;
     --bg-white: #ffffff;
-    --bg-overlay: rgba(255, 255, 255, 0.95);
-    --border-light: #e5e5e5;
-    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --bg-cream: #fafafa;
+    --bg-overlay: rgba(255, 255, 255, 0.98);
+    
+    /* Borders & Dividers */
+    --border-light: #e8e8e8;
+    --border-medium: #d5d5d5;
+    --divider-color: rgba(0, 0, 0, 0.06);
+    
+    /* Shadows - Subtle & Layered */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.06);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.12);
+    
+    /* Border Radius - Minimal */
     --border-radius: 0px;
-    --border-radius-lg: 0px;
-    --transition: all 0.3s ease;
-    --section-padding: 100px 0;
+    --border-radius-sm: 2px;
+    --border-radius-md: 4px;
+    
+    /* Transitions - Smooth & Refined */
+    --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Spacing */
+    --section-padding: 120px 0;
     --container-max-width: 1200px;
     --content-max-width: 800px;
 }
@@ -72,7 +96,7 @@ img {
         scroll-behavior: auto !important;
     }
 
-    .promo-text,
+    .promo-marquee,
     .marquee-track {
         animation: none !important;
     }
@@ -96,56 +120,65 @@ img {
     margin: 0 auto;
 }
 
-/* Minimalist Buttons - Canlis Style */
+/* Refined Minimalist Buttons */
 .btn {
-    display: inline-block;
-    padding: 14px 28px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
     font-weight: 500;
-    font-size: 14px;
-    letter-spacing: 0.8px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
     cursor: pointer;
     border: none;
     text-decoration: none;
     text-transform: uppercase;
-    background: transparent;
-    color: var(--text-dark);
-    border-bottom: 2px solid var(--text-dark);
+    font-family: 'Poppins', sans-serif;
     position: relative;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
-.btn:hover {
-    color: var(--text-light);
-    border-bottom-color: var(--text-light);
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 .btn-primary {
-    background: var(--text-dark);
-    color: white;
-    border: 2px solid var(--text-dark);
-    padding: 16px 32px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    font-weight: 600;
+    background: var(--primary-color);
+    color: var(--text-white);
+    border: 1px solid var(--primary-color);
 }
 
 .btn-primary:hover {
-    background: var(--text-light);
-    border-color: var(--text-light);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .btn-secondary {
     background: transparent;
     color: var(--text-dark);
-    border: 1px solid var(--text-dark);
+    border: 1px solid var(--border-medium);
 }
 
 .btn-secondary:hover {
-    background: var(--text-dark);
-    color: white;
+    background: var(--bg-cream);
+    border-color: var(--text-dark);
+    color: var(--text-dark);
 }
 
 /* Minimalist Navigation - Canlis Style */
@@ -242,20 +275,22 @@ img {
 
 .order-btn {
     background: transparent;
-    color: var(--text-dark) !important;
-    padding: 12px 24px;
-    margin-left: 20px;
+    color: var(--text-dark);
+    padding: 11px 24px;
     transition: var(--transition);
-    font-weight: 400;
-    border: 1px solid var(--text-dark);
+    font-weight: 500;
+    border: 1px solid var(--border-medium);
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    font-size: 14px;
+    font-size: 12px;
+    font-family: 'Poppins', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 .order-btn:hover {
-    background: var(--text-dark);
-    color: white !important;
+    background: var(--primary-color);
+    color: var(--text-white);
+    border-color: var(--primary-color);
 }
 
 .nav-toggle {
@@ -437,6 +472,16 @@ img {
     line-height: 1.5;
     text-transform: uppercase;
     font-family: 'Poppins', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.hero-details p i {
+    font-size: 1rem;
+    opacity: 0.95;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 
@@ -506,6 +551,14 @@ img {
     margin: 0 auto;
     padding: 0 20px;
     text-align: center;
+    overflow: hidden;
+}
+
+.promo-marquee {
+    display: flex;
+    white-space: nowrap;
+    width: max-content;
+    animation: scrollMarquee 20s linear infinite;
 }
 
 .promo-text {
@@ -515,15 +568,15 @@ img {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     display: inline-block;
     white-space: nowrap;
-    animation: scrollText 20s linear infinite;
+    margin-right: 80px;
 }
 
-@keyframes scrollText {
+@keyframes scrollMarquee {
     0% {
-        transform: translateX(100%);
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%);
     }
 }
 
@@ -538,10 +591,13 @@ img {
         padding: 6px 0;
     }
 
+    .promo-marquee {
+        animation: scrollMarquee 15s linear infinite;
+    }
+
     .promo-text {
         font-size: 0.8rem;
         white-space: nowrap;
-        animation: scrollText 15s linear infinite;
     }
 
     .navbar {
@@ -549,7 +605,7 @@ img {
     }
 }
 
-/* Minimalist Section Headers - Canlis Style */
+/* Refined Section Headers with Micro-details */
 .section-header {
     text-align: center;
     margin-bottom: 120px;
@@ -564,62 +620,76 @@ img {
     z-index: 4;
 }
 
+.section-header::before {
+    content: attr(data-number);
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+}
+
 .section-icon {
-    width: 80px;
-    height: 80px;
-    border: 3px solid #000000;
+    width: 72px;
+    height: 72px;
+    border: 1.5px solid var(--primary-color);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 25px;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
+    margin-bottom: 28px;
+    background: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
 }
 
 .section-icon:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-light);
 }
 
 .section-icon i {
-    font-size: 2rem;
-    color: #000000;
+    font-size: 1.75rem;
+    color: var(--primary-color);
 }
 
 .section-header h2 {
-    font-size: clamp(3rem, 5vw, 4rem);
-    color: #000000 !important;
-    margin-bottom: 0;
+    font-size: clamp(2.75rem, 5vw, 3.75rem);
+    color: var(--primary-color);
+    margin-bottom: 12px;
     position: relative;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.025em;
+    line-height: 1.08;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: none;
     font-family: 'Playfair Display', serif;
-    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
 }
 
 .section-header h2::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -18px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background: linear-gradient(90deg, #000000 0%, #333333 100%);
-    border-radius: 2px;
+    width: 60px;
+    height: 1px;
+    background: var(--divider-color);
 }
 
-/* Force section headers to be dark black with higher specificity */
+/* Section headers use refined color palette */
 .about .section-header h2,
 .menu .section-header h2,
-.gallery .section-header h2 {
-    color: #000000 !important;
-    font-weight: 800 !important;
+.gallery .section-header h2,
+.events .section-header h2 {
+    color: var(--primary-color);
+    font-weight: 400;
 }
 
 /* Gallery section header - remove white background/padding */
@@ -631,13 +701,16 @@ img {
 
 .section-header .subtitle,
 .section-subtitle {
-    font-size: 1.2rem;
-    color: var(--text-light);
+    font-size: 14px;
+    color: var(--text-muted);
     max-width: 600px;
-    margin: 20px 0 0 0;
+    margin: 28px 0 0 0;
     line-height: 1.6;
-    font-weight: 600;
+    font-weight: 400;
     text-align: center;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
 }
 
 .about-content .section-header {
@@ -1063,16 +1136,32 @@ img {
 
 .menu-category h3 {
     color: var(--text-dark);
-    margin-bottom: 40px;
-    font-size: 1.4rem;
-    font-weight: 300;
+    margin-bottom: 44px;
+    font-size: 1.25rem;
+    font-weight: 400;
     display: block;
     line-height: 1.2;
     font-family: 'Playfair Display', serif;
     text-align: left;
     position: relative;
     text-transform: none;
-    letter-spacing: 0.5px;
+    letter-spacing: -0.01em;
+    padding-bottom: 12px;
+}
+
+.menu-category h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 1px;
+    background: var(--divider-color);
+    transition: width var(--transition);
+}
+
+.menu-category:hover h3::after {
+    width: 60px;
 }
 
 .menu-category h3 i {
@@ -1087,13 +1176,16 @@ img {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 24px 0;
+    border-bottom: 1px solid var(--divider-color);
+    transition: var(--transition);
     margin-bottom: 0;
-    border-radius: 0;
+    position: relative;
 }
 
+.menu-item:hover {
+    padding-left: 8px;
+}
 
 .menu-item:last-child {
     border-bottom: none;
