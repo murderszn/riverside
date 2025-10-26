@@ -337,7 +337,7 @@ img {
 /* Minimalist Hero Section - Canlis Style */
 .hero {
     min-height: 100vh;
-    background: var(--bg-white);
+    background: transparent; /* Background is now handled by fixed hero-background */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -345,8 +345,9 @@ img {
     color: var(--text-dark);
     position: relative;
     padding: var(--section-padding);
+    padding-top: calc(var(--section-padding) + 96px); /* Account for navbar (80px) + promo banner (16px) */
     overflow: hidden;
-    margin-top: 40px; /* Account for fixed promo banner */
+    margin-top: 0;
 }
 
 @supports (height: 100svh) {
@@ -357,8 +358,8 @@ img {
 }
 
 .hero-background {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 96px; /* Start right after navbar (80px) + promo banner (16px) */
     left: 0;
     right: 0;
     bottom: 0;
@@ -375,8 +376,8 @@ img {
 }
 
 .hero-overlay {
-    position: absolute;
-    top: 0;
+    position: fixed;
+    top: 96px; /* Start right after navbar (80px) + promo banner (16px) */
     left: 0;
     right: 0;
     bottom: 0;
@@ -400,6 +401,7 @@ img {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    padding-top: 96px; /* Account for navbar (80px) + promo banner (16px) */
 }
 
 
@@ -535,7 +537,7 @@ img {
     gap: 40px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 0; /* Navbar now positioned with top instead of margin */
 }
 
 .hero-badge {
@@ -545,13 +547,13 @@ img {
 /* Promo Banner */
 .promo-banner {
     position: fixed;
-    top: 0;
+    top: 80px; /* Position below navbar */
     left: 0;
     right: 0;
     background: linear-gradient(135deg, #d4a574 0%, #b8955e 100%);
     color: white;
     padding: 8px 0;
-    z-index: 1000;
+    z-index: 999;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
@@ -605,9 +607,10 @@ img {
     }
 }
 
-/* Adjust navbar position to account for fixed banner */
+/* Navbar stays at top */
 .navbar {
-    margin-top: 40px;
+    margin-top: 0;
+    top: 0;
 }
 
 /* Mobile adjustments for promo banner */
@@ -627,7 +630,7 @@ img {
     }
 
     .navbar {
-        margin-top: 35px;
+        top: 0; /* Navbar stays at top */
     }
 }
 
@@ -642,7 +645,7 @@ img {
     }
 
     .navbar {
-        margin-top: 32px;
+        top: 0; /* Navbar stays at top */
     }
 }
 
@@ -2425,7 +2428,7 @@ img {
     .rewards-content {
         grid-template-columns: 1fr;
         gap: 40px;
-        margin-top: 40px;
+        margin-top: 0; /* Navbar now positioned with top instead of margin */
     }
 
     .rewards-card,
@@ -2824,7 +2827,7 @@ img {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    margin-top: 120px; /* Account for fixed banner + navbar */
+    margin-top: 96px; /* Account for navbar (80px) + promo banner (16px) */
 }
 
 .rewards-background {
@@ -3096,7 +3099,7 @@ img {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
-    margin-top: 40px;
+    margin-top: 0; /* Navbar now positioned with top instead of margin */
 }
 
 .benefit-item {
