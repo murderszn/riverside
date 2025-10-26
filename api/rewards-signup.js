@@ -31,9 +31,14 @@ export default async function handler(req, res) {
       status: 'pending' // pending, active, etc.
     };
 
-    // PostgREST API endpoint
-    const postgrestUrl = 'https://vrebqgcyjcqcncengtuc.supabase.co/rest/v1';
-    const apiKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZyZWJxZ2N5amNxY25jZW5ndHVjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjE0NDIwNTMsImV4cCI6MjA3NzAxODA1M30.z3giI1sI2YTUIMvDnae0-YCGoeYVM7h6wz227-FG84Q';
+    // PostgREST API endpoint from environment variables
+    const postgrestUrl = process.env.POSTGREST_URL;
+    const apiKey = process.env.POSTGREST_API_KEY;
+
+    if (!postgrestUrl || !apiKey) {
+      console.error('Missing PostgREST configuration');
+      return res.status(500).json({ error: 'Server configuration error' });
+    }
 
     // Insert into PostgREST
     const response = await fetch(`${postgrestUrl}/rewards_signups`, {
