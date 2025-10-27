@@ -346,25 +346,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroFallback = document.getElementById('hero-fallback');
 
     if (heroVideo && heroFallback) {
-        // Set a timeout to check if video loads
-        setTimeout(() => {
-            // If video is still visible after 3 seconds, assume it loaded successfully
-            if (heroVideo.style.display !== 'none') {
-                // Video appears to be working, keep fallback hidden
-                heroFallback.style.display = 'none';
-            }
-        }, 3000);
+        // Function to show fallback image
+        function showFallback() {
+            heroVideo.style.display = 'none';
+            heroFallback.style.setProperty('display', 'block', 'important');
+            heroFallback.style.setProperty('visibility', 'visible', 'important');
+            heroFallback.style.setProperty('opacity', '1', 'important');
+            heroFallback.style.setProperty('pointer-events', 'auto', 'important');
+        }
 
-        // Listen for iframe load events
-        heroVideo.addEventListener('load', () => {
-            // Video loaded successfully, ensure fallback is hidden
-            heroFallback.style.display = 'none';
+        // Function to keep fallback hidden
+        function hideFallback() {
+            heroFallback.style.setProperty('display', 'none', 'important');
+            heroFallback.style.setProperty('visibility', 'hidden', 'important');
+            heroFallback.style.setProperty('opacity', '0', 'important');
+            heroFallback.style.setProperty('pointer-events', 'none', 'important');
+        }
+
+        // Keep fallback hidden initially
+        hideFallback();
+
+        // Check if video can play successfully
+        heroVideo.addEventListener('loadeddata', () => {
+            hideFallback();
         });
 
-        // If there's an error with the iframe, show fallback
+        heroVideo.addEventListener('canplay', () => {
+            hideFallback();
+        });
+
+        heroVideo.addEventListener('playing', () => {
+            hideFallback();
+        });
+
+        // If video fails to load or play, show fallback
         heroVideo.addEventListener('error', () => {
-            heroVideo.style.display = 'none';
-            heroFallback.style.display = 'block';
+            showFallback();
+        });
+
+        // Double-check after a delay to catch cases where video doesn't load in embedded contexts
+        setTimeout(() => {
+            // Check if video is not in a playable state
+            if (heroVideo.readyState < 2) {
+                // Video failed to load, show fallback
+                showFallback();
+            }
+        }, 2500);
+
+        // Also check if video element is blocked by autoplay policies
+        heroVideo.play().catch(() => {
+            // Autoplay was blocked, but video exists, keep hiding fallback
+            // This is normal behavior, we'll let the video attempt to play
         });
     }
 

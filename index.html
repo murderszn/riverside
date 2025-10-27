@@ -85,11 +85,11 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <video id="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/Instagram_files/building-front.jpg"
+            <!-- Fallback image - hidden behind video, shown only if video fails -->
+            <img id="hero-fallback" src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; display: none;">
+            <video id="hero-video" autoplay muted loop playsinline preload="metadata" 
                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;">
                 <source src="riverside-live.mp4" type="video/mp4">
-                <!-- Fallback image - shown only if video fails -->
-                <img id="hero-fallback" src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Exterior" onerror="this.src='images/placeholder.jpg'" loading="eager" fetchpriority="high" decoding="async" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0;">
             </video>
         </div>
         <div class="hero-overlay"></div>
@@ -120,7 +120,6 @@
                     <p class="section-subtitle">A warm welcome since 2015</p>
                 </div>
                 <div class="about-text">
-                    <h3>Our Family Story</h3>
                     <p>Riverside Cafe began as a family dream in 2015, when we opened our doors with a simple mission: to serve the best breakfast in Lake County while creating a place where families could gather and create lasting memories. What started as a small family business has grown into a beloved community institution, but we've never lost sight of our roots.</p>
                     <p>Every morning, our family comes together to prepare fresh, made-to-order meals using the finest local ingredients. From our signature pancakes to our hearty skillets, every dish is crafted with the same love and attention to detail that we put into our own family meals. We believe that great food brings people together, and we're honored to be part of your family's traditions.</p>
                     <p>When you walk through our doors, you're not just a customer – you're part of our extended family. We look forward to welcoming you home to Riverside Cafe.</p>
@@ -584,71 +583,79 @@
     </section>
 
     <!-- Events Section -->
-    <section id="events" class="events">
-        <div class="events-background">
-            <img src="images/Instagram_files/building-front.jpg" alt="Riverside Cafe Venue" onerror="this.src='images/placeholder.jpg'" loading="lazy" decoding="async">
-        </div>
-        <div class="events-overlay"></div>
+    <section id="events" class="testimonials">
         <div class="container">
-            <div class="events-content">
-                <div class="section-header" data-number="03">
-                    <div class="section-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h2>Events & Venue</h2>
-                    <p class="section-subtitle">Host your special occasion at Riverside Cafe</p>
+            <div class="section-header" data-number="03">
+                <div class="section-icon">
+                    <i class="fas fa-calendar-alt"></i>
                 </div>
-                <div class="events-text">
-                    <h3>Perfect for Your Special Occasions</h3>
-                    <p>Riverside Cafe is more than just a restaurant – we're your premier venue for intimate gatherings, celebrations, and corporate events. Our charming space provides the perfect backdrop for memorable occasions.</p>
-                </div>
-                <div class="events-features">
-                    <div class="event-card">
+                <h2>Events & Venue</h2>
+                <p class="section-subtitle">Host your special occasion at Riverside Cafe</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
                         <div class="event-icon">
                             <i class="fas fa-birthday-cake"></i>
                         </div>
                         <h4>Private Events</h4>
                         <p>Birthday celebrations, anniversaries, baby showers, and family gatherings</p>
                     </div>
-                    <div class="event-card">
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
                         <div class="event-icon">
-                            <i class="fas fa-building"></i>
+                            <i class="fas fa-briefcase"></i>
                         </div>
                         <h4>Corporate Events</h4>
                         <p>Business meetings, team building events, and client presentations</p>
                     </div>
-                    <div class="event-card">
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
                         <div class="event-icon">
                             <i class="fas fa-heart"></i>
                         </div>
                         <h4>Wedding Receptions</h4>
                         <p>Intimate wedding receptions and rehearsal dinners</p>
                     </div>
-                    <div class="event-card">
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
                         <div class="event-icon">
-                            <i class="fas fa-star"></i>
+                            <i class="fas fa-graduation-cap"></i>
                         </div>
                         <h4>Special Occasions</h4>
                         <p>Graduation parties, retirement celebrations, and milestone events</p>
                     </div>
                 </div>
-                <div class="events-details">
-                    <div class="detail-card">
-                        <i class="fas fa-users"></i>
-                        <h5>Capacity</h5>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="event-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>Capacity</h4>
                         <p>Up to 60 guests seated, 80 for standing reception</p>
                     </div>
-                    <div class="detail-card">
-                        <i class="fas fa-utensils"></i>
-                        <h5>Catering</h5>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="event-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h4>Catering</h4>
                         <p>Custom menus available for all events</p>
                     </div>
                 </div>
-                <div class="events-cta">
-                    <p>Ready to host your event at Riverside Cafe?</p>
-                    <a href="tel:(847) 672-8736" class="btn btn-primary">Call (847) 672-8736</a>
-                    <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email for Details</a>
-                </div>
+            </div>
+            <div class="events-text">
+                <h3>Perfect for Your Special Occasions</h3>
+                <p>Riverside Cafe is more than just a restaurant – we're your premier venue for intimate gatherings, celebrations, and corporate events. Our charming space provides the perfect backdrop for memorable occasions.</p>
+            </div>
+            <div class="events-cta">
+                <p>Ready to host your event at Riverside Cafe?</p>
+                <a href="tel:(847) 672-8736" class="btn btn-primary">Call (847) 672-8736</a>
+                <a href="mailto:info@riversidepancakes.com" class="btn btn-secondary">Email for Details</a>
             </div>
         </div>
     </section>
