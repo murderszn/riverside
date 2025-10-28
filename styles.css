@@ -3452,52 +3452,62 @@ img {
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 0; /* Navbar now positioned with top instead of margin */
 }
 
-.benefit-item {
+.rewards-page .testimonial-card {
     background: var(--bg-white);
-    padding: 40px 30px;
+    padding: 40px 35px;
     border-radius: 0;
     box-shadow: none;
-    border: 2px solid var(--border-medium);
+    border: 2px solid var(--border-light);
     transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.rewards-page .testimonial-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #d4a574 0%, #b8955e 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.rewards-page .testimonial-card:hover::before {
+    transform: scaleX(1);
+}
+
+.rewards-page .testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: #d4a574;
+}
+
+.rewards-page .testimonial-content {
+    margin-bottom: 0;
     text-align: center;
 }
 
-.benefit-item:hover {
-    transform: none;
-    box-shadow: none;
-    border-color: var(--primary-color);
-}
-
-.benefit-icon {
-    width: 80px;
-    height: 80px;
-    background: var(--primary-color);
-    border-radius: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 25px;
-    color: var(--text-white);
-    font-size: 2rem;
-    border: 2px solid var(--primary-color);
-}
-
-.benefit-item h4 {
+.rewards-page .testimonial-content h4 {
     font-size: 1.3rem;
     color: var(--text-dark);
     margin-bottom: 15px;
     font-weight: 600;
 }
 
-.benefit-item p {
+.rewards-page .testimonial-content p {
     color: var(--text-light);
     line-height: 1.6;
     margin: 0;
+    font-style: normal;
+    font-size: 1rem;
 }
 
 .rewards-cta {
@@ -3584,15 +3594,18 @@ img {
         gap: 20px;
     }
 
-    .benefit-item {
-        padding: 30px 20px;
+    .rewards-page .testimonial-card {
+        padding: 30px 25px;
     }
 
-    .benefit-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-        margin-bottom: 20px;
+    .event-icon {
+        width: 40px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+
+    .event-icon i {
+        font-size: 16px;
     }
 
     .rewards-cta {
